@@ -10,7 +10,7 @@
         background: #000;
         color: #fff;
         font-family: "Helvetica Neue", Arial, sans-serif;
-        max-width: 700px;
+        max-width: 900px;
         margin: 40px auto;
         padding: 0 20px;
         line-height: 1.6;
@@ -28,14 +28,65 @@
         opacity: 0.9;
     }
 
-    .video {
-        margin: 40px 0;
+    .lang-buttons {
+        text-align: right;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
-    iframe {
+    .lang-buttons button {
+        margin: 5px;
+        padding: 6px 14px;
+        background: #111;
+        color: #fff;
+        border: 1px solid #444;
+        cursor: pointer;
+        font-size: 0.9em;
+    }
+
+    .slider-wrapper {
+        position: relative;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .slider {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+    }
+
+    .slide {
+        scroll-snap-align: start;
+        min-width: 100%;
+        box-sizing: border-box;
+        padding-right: 20px;
+    }
+
+    .slide iframe {
         width: 100%;
-        height: 400px;
         border: none;
+    }
+
+    .slider-nav {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        transform: translateY(-50%);
+        pointer-events: none;
+    }
+
+    .slider-nav button {
+        pointer-events: auto;
+        background: rgba(0,0,0,0.6);
+        color: #fff;
+        border: 1px solid #444;
+        padding: 8px 12px;
+        cursor: pointer;
     }
 
     hr {
@@ -48,75 +99,129 @@
 </head>
 <body>
 
-<!-- Botões de línguas (agora à direita) -->
-<div style="text-align:right; margin-top:10px; margin-bottom:30px;">
-    <button onclick="showLang('fr')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">FR</button>
-    <button onclick="showLang('es')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">ES</button>
-    <button onclick="showLang('pt')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">PT</button>
+<div class="lang-buttons">
+    <button onclick="showLang('fr')">FR</button>
+    <button onclick="showLang('es')">ES</button>
+    <button onclick="showLang('pt')">PT</button>
 </div>
 
-<!-- BLOCO FRANCÊS -->
 <div id="lang_fr" style="display:none;">
     <h1>Hommage à une vie</h1>
-    <p>
-        <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
-        Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
-        J’invite tous ceux qui le souhaitent à laisser un témoignage, afin que nous puissions ensemble garder vivante la mémoire de Marina.
-    </p>
+    <p>Une page simple dédiée à la mémoire, au partage et aux témoignages.</p>
 </div>
 
-<!-- BLOCO ESPANHOL -->
 <div id="lang_es" style="display:none;">
     <h1>Homenaje a una vida</h1>
-    <p>
-        <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
-        Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para siempre.
-        Invito a todos los que lo deseen a dejar un testimonio, para que juntos mantengamos viva la memoria de Marina.
-    </p>
+    <p>Una página sencilla dedicada a la memoria, al compartir y a los testimonios.</p>
 </div>
 
-<!-- BLOCO PORTUGUÊS -->
 <div id="lang_pt" style="display:block;">
     <h1>Homenagem a uma vida</h1>
-    <p>
-        <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
-        O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
-        Convido todos os que quiserem a deixar um testemunho, para juntos lembrarmos a Marina.
-    </p>
-
-    <p style="text-align:center; font-size:0.95em; opacity:0.8; margin-bottom:30px;">
-        Escreva na sua própria língua — o importante é a memória que partilha.
-    </p>
+    <p>Uma página simples dedicada à memória, ao partilha e aos testemunhos.</p>
 </div>
+
+<div class="slider-wrapper">
+    <div id="slider" class="slider">
+
+        <!-- SLIDE 1: Texto da homenagem (trilingue) -->
+        <div class="slide">
+            <div id="slide1_fr" style="display:none;">
+                <p>
+                    <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
+                    Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
+                    J’invite tous ceux qui le souhaitent à laisser un témoignage, afin que nous puissions ensemble garder vivante la mémoire de Marina.
+                </p>
+            </div>
+
+            <div id="slide1_es" style="display:none;">
+                <p>
+                    <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
+                    Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para siempre.
+                    Invito a todos los que lo deseen a dejar un testimonio, para que juntos mantengamos viva la memoria de Marina.
+                </p>
+            </div>
+
+            <div id="slide1_pt" style="display:block;">
+                <p>
+                    <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
+                    O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
+                    Convido todos os que quiserem a deixar um testemunho, para juntos lembrarmos a Marina.
+                </p>
+
+                <p style="text-align:center; font-size:0.95em; opacity:0.8; margin-top:20px;">
+                    Escreva na sua própria língua — o importante é a memória que partilha.
+                </p>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: Vídeo YouTube -->
+        <div class="slide">
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" height="400" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Áudio SoundCloud -->
+        <div class="slide">
+            <div class="audio">
+                <iframe 
+                    width="100%" 
+                    height="166" 
+                    scrolling="no" 
+                    frameborder="no"
+                    src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9&color=%23ffffff&inverse=false&auto_play=false&show_user=true">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: espaço para futuros conteúdos -->
+        <div class="slide">
+            <p style="opacity:0.7;">
+                Espaço para futuras fotos, textos, ou outros conteúdos que queiras adicionar à homenagem.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="slider-nav">
+        <button onclick="slideMove(-1)">&larr;</button>
+        <button onclick="slideMove(1)">&rarr;</button>
+    </div>
+</div>
+
+<hr>
+
+<div id="disqus_thread"></div>
 
 <script>
 function showLang(lang) {
+    // blocos de título/intro
     document.getElementById('lang_fr').style.display = (lang === 'fr') ? 'block' : 'none';
     document.getElementById('lang_es').style.display = (lang === 'es') ? 'block' : 'none';
     document.getElementById('lang_pt').style.display = (lang === 'pt') ? 'block' : 'none';
+
+    // slide 1 trilingue
+    document.getElementById('slide1_fr').style.display = (lang === 'fr') ? 'block' : 'none';
+    document.getElementById('slide1_es').style.display = (lang === 'es') ? 'block' : 'none';
+    document.getElementById('slide1_pt').style.display = (lang === 'pt') ? 'block' : 'none';
 }
 
-// Auto-detecção da língua do browser
+// auto-detecção da língua do browser
 window.onload = function() {
     const userLang = navigator.language || navigator.userLanguage;
 
     if (userLang.startsWith('fr')) showLang('fr');
     else if (userLang.startsWith('es')) showLang('es');
-    else showLang('pt'); // padrão
+    else showLang('pt');
 };
-</script>
 
-<!-- Vídeo -->
-<div class="video">
-    <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-</div>
+function slideMove(direction) {
+    const slider = document.getElementById('slider');
+    const width = slider.clientWidth;
+    slider.scrollBy({ left: direction * width, behavior: 'smooth' });
+}
 
-<hr>
-
-<!-- Comentários Disqus -->
-<div id="disqus_thread"></div>
-
-<script>
+// Disqus
 var disqus_config = function () {
     this.page.url = window.location.href;
     this.page.identifier = "hommage-page";
