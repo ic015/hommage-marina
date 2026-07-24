@@ -166,25 +166,39 @@
       return best;
     }
 
-function loadDisqus(lang) {
-
-    var dThread = document.getElementById('disqus_thread');
-    dThread.innerHTML = "";
-
+    // EMBED INICIAL — sempre em PT
     var disqus_config = function () {
         this.page.url = window.location.href;
         this.page.identifier = "hommage-marina-page";
+        this.language = "pt";
     };
 
-    var d = document, s = d.createElement('script');
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://hommage-marina.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 
-    // força idioma via URL
-    s.src = 'https://hommage-marina.disqus.com/embed.js?language=' + lang;
+    // FUNÇÃO PARA MUDAR DE LÍNGUA
+    function loadDisqus(lang) {
 
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-}
+        // Fallback ES → EN
+        if (lang === "es") {
+            lang = "en";
+        }
 
+        if (window.DISQUS) {
+            window.DISQUS.reset({
+                reload: true,
+                config: function () {
+                    this.page.url = window.location.href;
+                    this.page.identifier = "hommage-marina-page";
+                    this.language = lang;
+                }
+            });
+        }
+    }
 
     // Swiper
     const swiper = new Swiper('.my-swiper', {
