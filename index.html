@@ -328,10 +328,14 @@
  * Música: fade-in / fade-out
  ***********************/
 const audio = document.getElementById("musicaMarina");
-// Começar música imediatamente com fade-in
-window.addEventListener('load', () => {
-    fadeIn(audio);
-});
+let musicaIniciada = false;
+
+function iniciarMusica() {
+    if (!musicaIniciada) {
+        musicaIniciada = true;
+        fadeIn(audio);
+    }
+}
 
 audio.volume = 0; // começa silencioso
 audio.loop = true; // música em loop contínuo
@@ -340,7 +344,7 @@ function fadeIn(audio) {
     if (audio.paused) audio.play();
     let v = audio.volume;
     const i = setInterval(() => {
-        v += 0.02;
+        v += 0.05;
         if (v >= 1) {
             v = 1;
             clearInterval(i);
@@ -352,7 +356,7 @@ function fadeIn(audio) {
 function fadeOut(audio) {
     let v = audio.volume;
     const i = setInterval(() => {
-        v -= 0.02;
+        v -= 0.05;
         if (v <= 0) {
             v = 0;
             audio.pause();
