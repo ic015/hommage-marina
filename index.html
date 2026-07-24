@@ -327,33 +327,49 @@
     // inicializa SoundCloud widget se possível
     initSoundCloudWidget();
 /***********************
- * Música: fade-in / fade-out
+ * Música: fade-in / fade-out com cancelamento
  ***********************/
 const audio = document.getElementById("musicaMarina");
 audio.volume = 0.2;     // começa suave
 audio.loop = true;      // loop contínuo
 
+let fadeInInterval = null;
+let fadeOutInterval = null;
+
 function fadeIn(audio) {
     if (audio.paused) audio.play();
+
+    // cancelar fade-out se estiver a correr
+    clearInterval(fadeOutInterval);
+    fadeOutInterval = null;
+
     let v = audio.volume;
-    const i = setInterval(() => {
+
+    fadeInInterval = setInterval(() => {
         v += 0.03; // suave mas perceptível
         if (v >= 1) {
             v = 1;
-            clearInterval(i);
+            clearInterval(fadeInInterval);
+            fadeInInterval = null;
         }
         audio.volume = v;
     }, 60);
 }
 
 function fadeOut(audio) {
+    // cancelar fade-in se estiver a correr
+    clearInterval(fadeInInterval);
+    fadeInInterval = null;
+
     let v = audio.volume;
-    const i = setInterval(() => {
+
+    fadeOutInterval = setInterval(() => {
         v -= 0.03;
         if (v <= 0) {
             v = 0;
             audio.pause();
-            clearInterval(i);
+            clearInterval(fadeOutInterval);
+            fadeOutInterval = null;
         }
         audio.volume = v;
     }, 60);
@@ -387,7 +403,10 @@ function iniciarMusica() {
 
     // só inicia automaticamente se o slide atual permitir música
     if (!slidePermiteMusica()) {
-        return; // evita música sobre vídeos
+        // cancelar qualquer fade-in que tenha começado
+        clearInterval(fadeInInterval);
+        fadeInInterval = null;
+        return;
     }
 
     musicaIniciada = true;
