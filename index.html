@@ -48,20 +48,16 @@
 </head>
 <body>
 
-<!-- Título fixo da página -->
-<h1>Hommage à une vie</h1>
-
-<p>Une page simple dédiée à la mémoire, au partage et aux témoignages.</p>
-
-<!-- Botões de línguas -->
-<div style="text-align:center; margin-top:20px; margin-bottom:30px;">
-    <button onclick="showLang('fr')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Français</button>
-    <button onclick="showLang('es')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Español</button>
-    <button onclick="showLang('pt')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Português</button>
+<!-- Botões de línguas (agora à direita) -->
+<div style="text-align:right; margin-top:10px; margin-bottom:30px;">
+    <button onclick="showLang('fr')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">FR</button>
+    <button onclick="showLang('es')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">ES</button>
+    <button onclick="showLang('pt')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">PT</button>
 </div>
 
 <!-- BLOCO FRANCÊS -->
 <div id="lang_fr" style="display:none;">
+    <h1>Hommage à une vie</h1>
     <p>
         <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
         Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
@@ -71,6 +67,7 @@
 
 <!-- BLOCO ESPANHOL -->
 <div id="lang_es" style="display:none;">
+    <h1>Homenaje a una vida</h1>
     <p>
         <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
         Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para siempre.
@@ -78,8 +75,9 @@
     </p>
 </div>
 
-<!-- BLOCO PORTUGUÊS (visível por agora) -->
+<!-- BLOCO PORTUGUÊS -->
 <div id="lang_pt" style="display:block;">
+    <h1>Homenagem a uma vida</h1>
     <p>
         <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
         O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
@@ -97,6 +95,15 @@ function showLang(lang) {
     document.getElementById('lang_es').style.display = (lang === 'es') ? 'block' : 'none';
     document.getElementById('lang_pt').style.display = (lang === 'pt') ? 'block' : 'none';
 }
+
+// Auto-detecção da língua do browser
+window.onload = function() {
+    const userLang = navigator.language || navigator.userLanguage;
+
+    if (userLang.startsWith('fr')) showLang('fr');
+    else if (userLang.startsWith('es')) showLang('es');
+    else showLang('pt'); // padrão
+};
 </script>
 
 <!-- Vídeo -->
