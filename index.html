@@ -189,5 +189,26 @@
       (d.head || d.body).appendChild(s);
     })();
   </script>
+  <div id="disqus_thread"></div>
+
+<script>
+var disqus_config = function () {
+    // URL canónica da página
+    this.page.url = window.location.href;
+
+    // identificador único da página
+    this.page.identifier = "hommage-marina-page";
+};
+
+(function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://hommage-marina.disqus.com/embed.js';  // teu shortname
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+
+<noscript>Por favor ativa o JavaScript para ver os comentários do Disqus.</noscript>
+
 </body>
 </html>
