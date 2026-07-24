@@ -45,9 +45,8 @@
     }
 
     .slider-wrapper {
-        position: relative;
         margin-top: 20px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     .slider {
@@ -69,30 +68,30 @@
         border: none;
     }
 
-    .slider-nav {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        pointer-events: none;
-    }
-
-    .slider-nav button {
-        pointer-events: auto;
-        background: rgba(0,0,0,0.6);
-        color: #fff;
-        border: 1px solid #444;
-        padding: 8px 12px;
-        cursor: pointer;
+    .video iframe {
+        height: 400px;
     }
 
     hr {
         margin: 50px 0;
         border: none;
         border-top: 1px solid #444;
+    }
+
+    .slider-nav-bottom button {
+        font-size: 1.2em;
+        border-radius: 4px;
+        background:#111;
+        color:#fff;
+        border:1px solid #444;
+        padding:10px 18px;
+        margin:0 10px;
+        cursor:pointer;
+        transition: background 0.2s;
+    }
+
+    .slider-nav-bottom button:hover {
+        background:#222;
     }
 </style>
 
@@ -105,6 +104,7 @@
     <button onclick="showLang('pt')">PT</button>
 </div>
 
+<!-- Título / intro trilingue -->
 <div id="lang_fr" style="display:none;">
     <h1>Hommage à une vie</h1>
     <p>Une page simple dédiée à la mémoire, au partage et aux témoignages.</p>
@@ -117,7 +117,7 @@
 
 <div id="lang_pt" style="display:block;">
     <h1>Homenagem a uma vida</h1>
-    <p>Uma página simples dedicada à memória, ao partilha e aos testemunhos.</p>
+    <p>Uma página simples dedicada à memória, à partilha e aos testemunhos.</p>
 </div>
 
 <div class="slider-wrapper">
@@ -157,7 +157,7 @@
         <!-- SLIDE 2: Vídeo YouTube -->
         <div class="slide">
             <div class="video">
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID" height="400" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
             </div>
         </div>
 
@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 4: espaço para futuros conteúdos -->
+        <!-- SLIDE 4: espaço futuro -->
         <div class="slide">
             <p style="opacity:0.7;">
                 Espaço para futuras fotos, textos, ou outros conteúdos que queiras adicionar à homenagem.
@@ -182,11 +182,12 @@
         </div>
 
     </div>
+</div>
 
-    <div class="slider-nav">
-        <button onclick="slideMove(-1)">&larr;</button>
-        <button onclick="slideMove(1)">&rarr;</button>
-    </div>
+<!-- SETAS NO FUNDO AO CENTRO -->
+<div class="slider-nav-bottom" style="text-align:center; margin-top:20px;">
+    <button onclick="slideMove(-1)">←</button>
+    <button onclick="slideMove(1)">→</button>
 </div>
 
 <hr>
@@ -195,7 +196,7 @@
 
 <script>
 function showLang(lang) {
-    // blocos de título/intro
+    // título / intro
     document.getElementById('lang_fr').style.display = (lang === 'fr') ? 'block' : 'none';
     document.getElementById('lang_es').style.display = (lang === 'es') ? 'block' : 'none';
     document.getElementById('lang_pt').style.display = (lang === 'pt') ? 'block' : 'none';
@@ -210,8 +211,8 @@ function showLang(lang) {
 window.onload = function() {
     const userLang = navigator.language || navigator.userLanguage;
 
-    if (userLang.startsWith('fr')) showLang('fr');
-    else if (userLang.startsWith('es')) showLang('es');
+    if (userLang && userLang.startsWith('fr')) showLang('fr');
+    else if (userLang && userLang.startsWith('es')) showLang('es');
     else showLang('pt');
 };
 
