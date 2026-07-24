@@ -61,19 +61,9 @@
         <button onclick="showLang('es')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Español</button>
     </div>
 
-    <!-- Nota universal -->
-    <p style="text-align:center; font-size:0.95em; opacity:0.8; margin-bottom:30px;">
-        Escreva na sua própria língua — o importante é a memória que partilha.
-    </p>
 
-    <!-- Texto em Português -->
-    <div id="lang_pt" style="display:block;">
-        <p>
-            <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
-            O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
-            Convido todos os que quiserem a deixar um testemunho, para juntos lembrarmos a Marina.
-        </p>
-    </div>
+
+
 
     <!-- Texte en Français -->
     <div id="lang_fr" style="display:none;">
@@ -94,7 +84,19 @@
     </div>
 
 </div>
+    <!-- Texto em Português -->
+    <div id="lang_pt" style="display:block;">
+        <p>
+            <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
+            O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
+            Convido todos os que quiserem a deixar um testemunho, para juntos lembrarmos a Marina.
+        </p>
 
+            <!-- Nota universal -->
+    <p style="text-align:center; font-size:0.95em; opacity:0.8; margin-bottom:30px;">
+        Escreva na sua própria língua — o importante é a memória que partilha.
+    </p>
+    </div>
 <script>
 function showLang(lang) {
     document.getElementById('lang_pt').style.display = (lang === 'pt') ? 'block' : 'none';
