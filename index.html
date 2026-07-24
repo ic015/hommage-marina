@@ -2,145 +2,99 @@
 <html lang="pt">
 <head>
   <meta charset="utf-8" />
-  <title>Homenagem a uma vida — Swiper</title>
+  <title>Homenagem a uma vida — Swiper (players control)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
-  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
   <style>
     :root { --bg:#000; --fg:#fff; --panel:#111; --border:#444; }
     html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif;}
     .page{max-width:900px;margin:40px auto;padding:0 20px;line-height:1.6;}
     h1{font-weight:300;font-size:2.2em;margin:0 0 8px;}
     p{margin:0 0 12px;font-size:1.05em;opacity:.95;}
-
     .lang-buttons{ text-align:right;margin-bottom:14px;}
-    .lang-buttons button{
-      margin-left:6px;padding:6px 12px;background:var(--panel);
-      color:var(--fg);border:1px solid var(--border);cursor:pointer;
-    }
-
+    .lang-buttons button{ margin-left:6px;padding:6px 12px;background:var(--panel); color:var(--fg);border:1px solid var(--border);cursor:pointer;}
     .swiper { width:100%; }
-    .swiper-slide {
-      box-sizing:border-box; padding:18px 6px;
-      min-height:120px; display:flex;
-      justify-content:center; align-items:center;
-    }
-
+    .swiper-slide { box-sizing:border-box; padding:18px 6px; min-height:120px; display:flex; justify-content:center; align-items:center; }
     .slide-content { width:100%; }
-
-    .video iframe {
-      width:100%;
-      height:300px;
-    }
-    @media(max-width:600px){
-      .video iframe{height:200px;}
-      h1{font-size:1.6em;}
-    }
-
-    .top-nav, .bottom-nav {
-      display:flex; justify-content:flex-end; gap:8px;
-    }
+    .video iframe { width:100%; height:300px; }
+    @media(max-width:600px){ .video iframe{height:200px;} h1{font-size:1.6em;} }
+    .top-nav, .bottom-nav { display:flex; justify-content:flex-end; gap:8px; }
     .top-nav { margin-bottom:8px; }
-    .nav-btn {
-      background:var(--panel); color:var(--fg);
-      border:1px solid var(--border); padding:6px 12px;
-      cursor:pointer; border-radius:6px;
-    }
+    .nav-btn { background:var(--panel); color:var(--fg); border:1px solid var(--border); padding:6px 12px; cursor:pointer; border-radius:6px; }
     .bottom-nav { justify-content:center; margin-top:12px; margin-bottom:18px; }
     .bottom-nav .nav-btn { padding:10px 18px; font-size:1.05em; }
-
     hr { border:none; border-top:1px solid var(--border); margin:28px 0; }
-
-    .swiper-button-next, .swiper-button-prev { display:none; }
   </style>
 </head>
 <body>
   <div class="page">
-
-    <!-- Botões de língua -->
     <div class="lang-buttons">
       <button onclick="showLang('fr')">FR</button>
       <button onclick="showLang('es')">ES</button>
       <button onclick="showLang('pt')">PT</button>
     </div>
 
-    <!-- Cabeçalhos multilíngua -->
     <div id="lang_fr" style="display:none;">
       <h1>Hommage à une vie</h1>
       <p>À la mémoire de <strong>Marina Lourenço Cortes</strong>.</p>
     </div>
-
     <div id="lang_es" style="display:none;">
       <h1>Homenaje a una vida</h1>
       <p>En memoria de <strong>Marina Lourenço Cortes</strong>.</p>
     </div>
-
     <div id="lang_pt" style="display:block;">
       <h1>Homenagem a uma vida</h1>
       <p>À memória de <strong>Marina Lourenço Cortes</strong>.</p>
     </div>
 
-    <!-- Navegação superior -->
     <div class="top-nav">
       <button class="nav-btn" id="prevTop">←</button>
       <button class="nav-btn" id="nextTop">→</button>
     </div>
 
-    <!-- Swiper -->
     <div class="swiper my-swiper">
       <div class="swiper-wrapper">
 
-        <!-- Slide 1 -->
         <div class="swiper-slide">
           <div class="slide-content">
-            <div id="slide1_fr" style="display:none;">
-              <p><strong>Marina Lourenço</strong> est partie trop tôt...</p>
-            </div>
-            <div id="slide1_es" style="display:none;">
-              <p><strong>Marina Lourenço</strong> se fue demasiado pronto...</p>
-            </div>
-            <div id="slide1_pt" style="display:block;">
-              <p><strong>Marina Lourenço</strong> partiu demasiado cedo...</p>
+            <div id="slide1_fr" style="display:none;"><p><strong>Marina Lourenço</strong> est partie trop tôt...</p></div>
+            <div id="slide1_es" style="display:none;"><p><strong>Marina Lourenço</strong> se fue demasiado pronto...</p></div>
+            <div id="slide1_pt" style="display:block;"><p><strong>Marina Lourenço</strong> partiu demasiado cedo...</p></div>
+          </div>
+        </div>
+
+        <!-- YouTube slide: substitui VIDEO_ID -->
+        <div class="swiper-slide">
+          <div class="video slide-content">
+            <p style="opacity:.85; margin-bottom:10px;">Vídeo homenagem.</p>
+            <div id="youtube-player-wrap">
+              <iframe id="youtube_iframe"
+                src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1&origin=" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
         </div>
 
-        <!-- Slide 2: YouTube -->
-        <div class="swiper-slide">
-          <div class="video">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1" allowfullscreen></iframe>
-          </div>
-        </div>
-
-        <!-- Slide 3: SoundCloud -->
+        <!-- SoundCloud slide -->
         <div class="swiper-slide">
           <div class="slide-content">
+            <p style="opacity:.85; margin-bottom:10px;">Emissão Falseta nº9 — Programa de rádio dedicado ao flamenco.</p>
 
-            <p style="opacity:.85; margin-bottom:10px;">
-              Emissão Falseta nº9 — Programa de rádio dedicado ao flamenco.
-            </p>
-
-            <iframe
-              width="100%" height="166"
-              scrolling="no" frameborder="no"
-              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9#t=1:23&color=%23ffffff&inverse=false&auto_play=false&show_user=true">
+            <!-- iframe do SoundCloud -->
+            <iframe id="soundcloud_iframe" width="100%" height="166" scrolling="no" frameborder="no"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9&color=%23ffffff&inverse=false&auto_play=false&show_user=true">
             </iframe>
-
           </div>
         </div>
 
-        <!-- Slide 4 -->
-        <div class="swiper-slide">
-          <p style="opacity:.85;">Espaço para futuros conteúdos.</p>
-        </div>
+        <div class="swiper-slide"><p style="opacity:.85;">Espaço para futuros conteúdos.</p></div>
 
       </div>
       <div class="swiper-pagination"></div>
     </div>
 
-    <!-- Navegação inferior -->
     <div class="bottom-nav">
       <button class="nav-btn" id="prevBottom">←</button>
       <button class="nav-btn" id="nextBottom">→</button>
@@ -148,56 +102,59 @@
 
     <hr>
 
-    <!-- Disqus -->
     <div id="disqus_thread"></div>
-
   </div>
 
-  <!-- Swiper JS -->
+  <!-- libs -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
+  <!-- YouTube IFrame API (necessário para controlar o player) -->
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+  <!-- SoundCloud Widget API -->
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+
   <script>
-    // Detecta língua do browser com pesos
+    /***********************
+     * Configurações
+     ***********************/
+    const YT_VIDEO_ID = 'dQw4w9WgXcQ'; // substitui por um id real
+    const soundcloudStartSec = 83; // 1:23 = 83 segundos (se quiseres outro tempo, altera aqui)
+
+    /***********************
+     * Detecção de língua (mantém o teu comportamento)
+     ***********************/
     function detectPreferredLanguage() {
       const raw = navigator.languages || [navigator.language || 'pt'];
       const scores = { pt: 0, fr: 0, es: 0 };
-
       raw.forEach(l => {
         const lang = l.toLowerCase();
         if (lang.startsWith('pt')) scores.pt += 1;
         if (lang.startsWith('fr')) scores.fr += 1;
         if (lang.startsWith('es')) scores.es += 1;
       });
-
       let best = 'pt';
       if (scores.fr > scores.pt && scores.fr > scores.es) best = 'fr';
       if (scores.es > scores.pt && scores.es > scores.fr) best = 'es';
-
       return best;
     }
 
-    // EMBED INICIAL — sempre em PT
+    /***********************
+     * Disqus (mantém fallback ES->EN)
+     ***********************/
     var disqus_config = function () {
         this.page.url = window.location.href;
         this.page.identifier = "hommage-marina-page";
         this.language = "pt";
     };
-
     (function() {
         var d = document, s = d.createElement('script');
         s.src = 'https://hommage-marina.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
-
-    // FUNÇÃO PARA MUDAR DE LÍNGUA
     function loadDisqus(lang) {
-
-        // Fallback ES → EN
-        if (lang === "es") {
-            lang = "en";
-        }
-
+        if (lang === "es") lang = "en";
         if (window.DISQUS) {
             window.DISQUS.reset({
                 reload: true,
@@ -210,7 +167,9 @@
         }
     }
 
-    // Swiper
+    /***********************
+     * Inicializar Swiper
+     ***********************/
     const swiper = new Swiper('.my-swiper', {
       slidesPerView: 1,
       spaceBetween: 0,
@@ -218,37 +177,92 @@
       pagination: { el: '.swiper-pagination', clickable: true }
     });
 
-    // PAUSAR MEDIA AO MUDAR DE SLIDE
-    swiper.on('slideChange', function () {
-        pauseMedia();
-    });
-
-    // PAUSA YouTube + SoundCloud
-    function pauseMedia() {
-
-        // Pausar YouTube
-        document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
-            iframe.contentWindow.postMessage(
-                '{"event":"command","func":"pauseVideo","args":""}',
-                '*'
-            );
-        });
-
-        // Pausar SoundCloud
-        document.querySelectorAll('iframe[src*="soundcloud"]').forEach(iframe => {
-            iframe.contentWindow.postMessage(
-                { method: 'pause' },
-                '*'
-            );
-        });
-    }
-
     document.getElementById('prevTop').onclick = () => swiper.slidePrev();
     document.getElementById('nextTop').onclick = () => swiper.slideNext();
     document.getElementById('prevBottom').onclick = () => swiper.slidePrev();
     document.getElementById('nextBottom').onclick = () => swiper.slideNext();
 
-    // Muda língua do site + Disqus
+    /***********************
+     * Players: YouTube + SoundCloud
+     ***********************/
+    let ytPlayer = null;
+    let scWidget = null;
+    let scIframe = document.getElementById('soundcloud_iframe');
+
+    // 1) YouTube API: cria o player quando a API estiver pronta
+    function onYouTubeIframeAPIReady() {
+      // substitui o iframe src com o VIDEO_ID real (se não substituíste no HTML)
+      const iframe = document.getElementById('youtube_iframe');
+      // se o iframe já tem VIDEO_ID no src, podes ignorar; aqui garantimos que está correto
+      iframe.src = 'https://www.youtube.com/embed/' + YT_VIDEO_ID + '?enablejsapi=1&origin=' + location.origin;
+      ytPlayer = new YT.Player('youtube_iframe', {
+        events: {
+          'onReady': function() { console.log('YouTube ready'); },
+          'onStateChange': function(e) { /* opcional: monitorizar estados */ }
+        }
+      });
+    }
+
+    // 2) SoundCloud Widget: criar instância SC.Widget e posicionar no tempo inicial
+    function initSoundCloudWidget() {
+      if (!scIframe) return;
+      scWidget = SC.Widget(scIframe);
+      scWidget.bind(SC.Widget.Events.READY, function() {
+        console.log('SoundCloud ready');
+        // seek para o tempo inicial (em segundos)
+        if (typeof soundcloudStartSec === 'number' && soundcloudStartSec > 0) {
+          scWidget.seekTo(soundcloudStartSec * 1000); // seekTo em ms
+        }
+      });
+    }
+
+    // inicializa SoundCloud quando a API estiver carregada
+    if (window.SC && SC.Widget) {
+      initSoundCloudWidget();
+    } else {
+      // se a API ainda não carregou, espera um pouco e tenta
+      window.addEventListener('load', function() {
+        setTimeout(initSoundCloudWidget, 300);
+      });
+    }
+
+    /***********************
+     * Pausar media quando o slide sai de vista
+     ***********************/
+    function pauseMedia() {
+      // YouTube: usar API se disponível
+      try {
+        if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
+          ytPlayer.pauseVideo();
+        } else {
+          // fallback: enviar postMessage (pode não funcionar se player não inicializado)
+          document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
+            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          });
+        }
+      } catch (e) { console.warn('YT pause error', e); }
+
+      // SoundCloud: usar widget API se disponível
+      try {
+        if (scWidget && typeof scWidget.pause === 'function') {
+          scWidget.pause();
+        } else {
+          // fallback: postMessage
+          document.querySelectorAll('iframe[src*="soundcloud"]').forEach(iframe => {
+            iframe.contentWindow.postMessage({ method: 'pause' }, '*');
+          });
+        }
+      } catch (e) { console.warn('SC pause error', e); }
+    }
+
+    // ligar pausa ao evento do Swiper
+    swiper.on('slideChange', function () {
+        pauseMedia();
+    });
+
+    /***********************
+     * Multilíngua (UI) e Disqus
+     ***********************/
     function showLang(lang){
       document.getElementById('lang_fr').style.display = (lang==='fr') ? 'block' : 'none';
       document.getElementById('lang_es').style.display = (lang==='es') ? 'block' : 'none';
@@ -260,12 +274,26 @@
 
       loadDisqus(lang);
     }
-
-    // Língua inicial automática
     const initialLang = detectPreferredLanguage();
     showLang(initialLang);
 
-  </script>
+    /***********************
+     * Debug helpers (úteis para testar)
+     ***********************/
+    // Abre o console do browser (F12) e procura estas mensagens:
+    console.log('Inicializado: swiper + players (aguarda APIs).');
+    // Forçar inicialização do SoundCloud widget se a API carregar depois
+    window.addEventListener('message', function(e){ /* opcional: ver mensagens */ }, false);
 
+    // Inicializa YouTube se a API já estiver carregada (em alguns casos onYouTubeIframeAPIReady já foi chamado)
+    if (window.YT && window.YT.Player) {
+      // chama manualmente se a função global já existe
+      if (typeof onYouTubeIframeAPIReady === 'function') onYouTubeIframeAPIReady();
+    }
+
+    // inicializa SoundCloud widget se possível
+    initSoundCloudWidget();
+
+  </script>
 </body>
 </html>
