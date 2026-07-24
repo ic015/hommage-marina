@@ -256,6 +256,9 @@ function slideMove(direction) {
     const slider = document.getElementById('slider');
     const width = slider.clientWidth;
     slider.scrollBy({ left: direction * width, behavior: 'smooth' });
+
+    // fallback: força atualização após scroll suave
+    setTimeout(updateSliderHeight, 350);
 }
 
 // ALTURA DINÂMICA
@@ -270,7 +273,7 @@ function updateSliderHeight() {
 const slider = document.getElementById('slider');
 const slides = document.querySelectorAll('.slide');
 
-// OBSERVER
+// OBSERVER — threshold reduzido
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -281,9 +284,10 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, {
     root: slider,
-    threshold: 0.6
+    threshold: 0.1   // ← antes era 0.6
 });
 
+// ativar observador
 slides.forEach(slide => observer.observe(slide));
 
 // DISQUS
