@@ -360,7 +360,7 @@ function fadeOut(audio) {
 }
 
 /***********************
- * Botão de som
+ * Estado da música
  ***********************/
 let musicaAtiva = false;     // utilizador ativou som?
 let musicaIniciada = false;  // já começou alguma vez?
@@ -370,25 +370,46 @@ function atualizarIconeSom() {
     btn.textContent = musicaAtiva ? "🔊" : "🔇";
 }
 
-function iniciarMusica() {
-    if (!musicaIniciada) {
-        musicaIniciada = true;
-        musicaAtiva = true;      // música fica ativa automaticamente
-        fadeIn(audio);
-        atualizarIconeSom();     // sincroniza o botão
-    }
+/***********************
+ * Verificar se slide permite música
+ ***********************/
+function slidePermiteMusica() {
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const tipo = activeSlide.dataset.tipo || "";
+    return (tipo === "foto" || tipo === "foto-homenagem");
 }
 
+/***********************
+ * Iniciar música automaticamente (se fizer sentido)
+ ***********************/
+function iniciarMusica() {
+    if (musicaIniciada) return;
+
+    // só inicia automaticamente se o slide atual permitir música
+    if (!slidePermiteMusica()) {
+        return; // evita música sobre vídeos
+    }
+
+    musicaIniciada = true;
+    musicaAtiva = true;
+    fadeIn(audio);
+    atualizarIconeSom();
+}
+
+/***********************
+ * Botão de som
+ ***********************/
 document.getElementById("toggleSound").addEventListener("click", () => {
     musicaAtiva = !musicaAtiva;
 
     if (musicaAtiva) {
-        iniciarMusica();         // garante fade-in inicial
+        musicaIniciada = true; // utilizador quer música
+        fadeIn(audio);
     } else {
         fadeOut(audio);
     }
 
-    atualizarIconeSom();         // sincroniza sempre
+    atualizarIconeSom();
 });
 
 /***********************
@@ -415,6 +436,7 @@ swiper.on('slideChange', function () {
         fadeOut(audio);
     }
 });
+
   </script>
   <hr>
 <p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
