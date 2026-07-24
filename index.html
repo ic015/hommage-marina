@@ -249,6 +249,8 @@ window.addEventListener('load', () => {
     if (userLang.startsWith('fr')) showLang('fr');
     else if (userLang.startsWith('es')) showLang('es');
     else showLang('pt');
+
+    updateSliderHeight();
 });
 
 // SETAS
@@ -257,38 +259,31 @@ function slideMove(direction) {
     const width = slider.clientWidth;
     slider.scrollBy({ left: direction * width, behavior: 'smooth' });
 
-    // fallback: força atualização após scroll suave
-    setTimeout(updateSliderHeight, 350);
+    setTimeout(updateSliderHeight, 400);
 }
 
-// ALTURA DINÂMICA
+// ALTURA DINÂMICA — versão robusta
 function updateSliderHeight() {
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
     const wrapper = document.querySelector('.slider-wrapper');
-    const activeSlide = document.querySelector('.slide.active');
+
+    const scrollLeft = slider.scrollLeft;
+    const width = slider.clientWidth;
+
+    // índice do slide mais centrado
+    const index = Math.round(scrollLeft / width);
+
+    const activeSlide = slides[index];
     if (activeSlide) {
         wrapper.style.height = activeSlide.offsetHeight + "px";
     }
 }
 
-const slider = document.getElementById('slider');
-const slides = document.querySelectorAll('.slide');
-
-// OBSERVER — threshold reduzido
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            slides.forEach(s => s.classList.remove('active'));
-            entry.target.classList.add('active');
-            updateSliderHeight();
-        }
-    });
-}, {
-    root: slider,
-    threshold: 0.1   // ← antes era 0.6
+// atualizar altura ao deslizar manualmente
+document.getElementById('slider').addEventListener('scroll', () => {
+    updateSliderHeight();
 });
-
-// ativar observador
-slides.forEach(slide => observer.observe(slide));
 
 // DISQUS
 var disqus_config = function () {
