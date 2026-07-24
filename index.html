@@ -1,167 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <title>Homenagem a uma vida</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <style>
         :root {
-            --bg: #000;
-            --fg: #fff;
-            --muted: #888;
-            --panel: #111;
-            --border: #444;
+            --bg:#000; --fg:#fff; --panel:#111; --border:#444;
         }
-
-        html, body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background: var(--bg);
-            color: var(--fg);
-            font-family: "Helvetica Neue", Arial, sans-serif;
-        }
-
-        .page {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.6;
-        }
-
-        h1 {
-            font-weight: 300;
-            font-size: 2.4em;
-            margin: 0 0 10px 0;
-            letter-spacing: 1px;
-        }
-
-        p {
-            font-size: 1.05em;
-            opacity: 0.95;
-            margin: 0 0 12px 0;
-        }
-
-        .lang-buttons {
-            text-align: right;
-            margin-top: 10px;
-            margin-bottom: 18px;
-        }
-
-        .lang-buttons button {
-            margin: 0 6px;
-            padding: 6px 12px;
-            background: var(--panel);
-            color: var(--fg);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            font-size: 0.9em;
-        }
-
-        /* SLIDER */
-        .slider-wrapper {
-            margin-top: 20px;
-            margin-bottom: 8px;
-            position: relative;
-            overflow: hidden;
-            transition: height 0.28s ease;
-            height: auto !important;
-        }
-
-        .slider {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .slide {
-            scroll-snap-align: start;
-            min-width: 100%;
-            box-sizing: border-box;
-            padding-right: 20px;
-            padding-left: 0;
-        }
-
-        .slide .content {
-            padding: 18px 6px;
-        }
-
-        .slide iframe {
-            width: 100%;
-            border: none;
-            display: block;
-        }
-
-        .video iframe {
-            height: 400px;
-        }
-
-        /* top nav (discreta) */
-        .slider-nav-top {
-            text-align: right;
-            margin-bottom: 8px;
-        }
-
-        .slider-nav-top button {
-            background: var(--panel);
-            color: var(--fg);
-            border: 1px solid var(--border);
-            padding: 6px 12px;
-            cursor: pointer;
-            font-size: 0.9em;
-            opacity: 0.75;
-        }
-
-        .slider-nav-top button:hover { opacity: 1; }
-
-        /* bottom nav (visível) */
-        .slider-nav-bottom {
-            text-align: center;
-            margin-top: 12px;
-            margin-bottom: 18px;
-        }
-
-        .slider-nav-bottom button {
-            font-size: 1.05em;
-            border-radius: 6px;
-            background: var(--panel);
-            color: var(--fg);
-            border: 1px solid var(--border);
-            padding: 10px 18px;
-            margin: 0 8px;
-            cursor: pointer;
-            transition: background 0.18s, transform 0.08s;
-        }
-
-        .slider-nav-bottom button:hover { background: #222; transform: translateY(-1px); }
-
-        hr {
-            margin: 28px 0;
-            border: none;
-            border-top: 1px solid var(--border);
-        }
-
-        /* small screens */
-        @media (max-width: 600px) {
-            .video iframe { height: 220px; }
-            h1 { font-size: 1.6em; }
-            .slider-nav-bottom button { padding: 8px 14px; font-size: 1em; }
-        }
+        html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:"Helvetica Neue",Arial,sans-serif;}
+        .page{max-width:900px;margin:40px auto;padding:0 20px;line-height:1.6;}
+        h1{font-weight:300;font-size:2.2em;margin:0 0 8px;}
+        p{margin:0 0 12px;font-size:1.05em;opacity:.95;}
+        .lang-buttons{ text-align:right;margin-bottom:14px;}
+        .lang-buttons button{margin-left:6px;padding:6px 12px;background:var(--panel);color:var(--fg);border:1px solid var(--border);cursor:pointer;}
+        .slider-nav-top{ text-align:right;margin-bottom:8px;}
+        .slider-nav-top button{background:var(--panel);color:var(--fg);border:1px solid var(--border);padding:6px 12px;opacity:.8;cursor:pointer;}
+        .slider-wrapper{ margin-top:12px;margin-bottom:8px;position:relative;overflow:hidden;transition:height .28s ease;height:auto !important;}
+        .slider{ display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;}
+        .slide{ scroll-snap-align:start; min-width:100%; box-sizing:border-box; padding:0 6px 0 0; }
+        .slide .content{ padding:18px 6px; }
+        .video iframe{ width:100%; height:400px; display:block; border:0; }
+        .slide iframe{ width:100%; border:0; display:block; }
+        .slider-nav-bottom{ text-align:center;margin-top:12px;margin-bottom:18px;}
+        .slider-nav-bottom button{ padding:10px 18px;background:var(--panel);color:var(--fg);border:1px solid var(--border);cursor:pointer;border-radius:6px; margin:0 8px;}
+        @media(max-width:600px){ .video iframe{height:220px;} h1{font-size:1.6em;} .slider-nav-bottom button{padding:8px 14px;} }
     </style>
 </head>
 <body>
 <div class="page">
 
-    <!-- LÍNGUAS -->
     <div class="lang-buttons">
         <button onclick="showLang('fr')">FR</button>
         <button onclick="showLang('es')">ES</button>
         <button onclick="showLang('pt')">PT</button>
     </div>
 
-    <!-- TÍTULO / INTRO -->
     <div id="lang_fr" style="display:none;">
         <h1>Hommage à une vie</h1>
         <p>À la mémoire de <strong>Marina Lourenço Cortes</strong>.</p>
@@ -177,43 +51,36 @@
         <p>À memória de <strong>Marina Lourenço Cortes</strong>.</p>
     </div>
 
-    <!-- SETAS EM CIMA (discretas) -->
-    <div class="slider-nav-top" aria-hidden="false">
+    <div class="slider-nav-top">
         <button onclick="slideMove(-1)" aria-label="Anterior">←</button>
         <button onclick="slideMove(1)" aria-label="Seguinte">→</button>
     </div>
 
-    <!-- SLIDER -->
-    <div class="slider-wrapper">
+    <div class="slider-wrapper" id="sliderWrapper">
         <div id="slider" class="slider" role="region" aria-label="Galeria de homenagem">
 
-            <!-- SLIDE 1: texto trilingue -->
-            <div class="slide" role="group" aria-roledescription="slide">
+            <div class="slide" role="group">
                 <div class="content">
                     <div id="slide1_fr" style="display:none;">
-                        <p><strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence. Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours. J’invite tous ceux qui le souhaitent à laisser un témoignage, afin que nous puissions ensemble garder vivante la mémoire de Marina.</p>
+                        <p><strong>Marina Lourenço</strong> est partie trop tôt... J’invite tous ceux qui le souhaitent à laisser un témoignage.</p>
                     </div>
-
                     <div id="slide1_es" style="display:none;">
-                        <p><strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia. Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para siempre. Invito a todos los que lo deseen a dejar un testimonio, para que juntos mantengamos viva la memoria de Marina.</p>
+                        <p><strong>Marina Lourenço</strong> se fue demasiado pronto... Invito a todos los que lo deseen a dejar un testimonio.</p>
                     </div>
-
                     <div id="slide1_pt" style="display:block;">
-                        <p><strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença. O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre. Convido todos os que quiserem a deixar um testemunho, para juntos lembrarmos a Marina.</p>
+                        <p><strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio... Convido todos os que quiserem a deixar um testemunho.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- SLIDE 2: YouTube -->
-            <div class="slide" role="group" aria-roledescription="slide">
+            <div class="slide" role="group">
                 <div class="video">
-                    <!-- substitui VIDEO_ID pelo id real do YouTube -->
+                    <!-- substitui VIDEO_ID -->
                     <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen title="Vídeo homenagem"></iframe>
                 </div>
             </div>
 
-            <!-- SLIDE 3: SoundCloud -->
-            <div class="slide" role="group" aria-roledescription="slide">
+            <div class="slide" role="group">
                 <div class="content audio">
                     <iframe width="100%" height="166" scrolling="no" frameborder="no"
                         src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9&color=%23ffffff&inverse=false&auto_play=false&show_user=true"
@@ -221,151 +88,130 @@
                 </div>
             </div>
 
-            <!-- SLIDE 4: espaço futuro -->
-            <div class="slide" role="group" aria-roledescription="slide">
+            <div class="slide" role="group">
                 <div class="content">
-                    <p style="opacity:0.85;">Espaço para futuras fotos, textos, ou outros conteúdos que queiras adicionar à homenagem.</p>
+                    <p style="opacity:.85;">Espaço para futuras fotos, textos, ou outros conteúdos que queiras adicionar à homenagem.</p>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- SETAS EM BAIXO (visíveis) -->
-    <div class="slider-nav-bottom" aria-hidden="false">
+    <div class="slider-nav-bottom">
         <button onclick="slideMove(-1)" aria-label="Anterior">←</button>
         <button onclick="slideMove(1)" aria-label="Seguinte">→</button>
     </div>
 
     <hr>
-
-    <!-- DISQUS (substitui TEU-SUBDOMINIO-DISQUS pelo teu) -->
     <div id="disqus_thread"></div>
-
 </div>
 
-<!-- SCRIPT: idioma, navegação e altura dinâmica robusta -->
 <script>
-/* util debounce */
-function debounce(fn, wait) {
-    let t;
-    return function(...args) {
-        clearTimeout(t);
-        t = setTimeout(() => fn.apply(this, args), wait);
-    };
-}
+/* ---------- utilidades ---------- */
+function debounce(fn, wait){ let t; return function(...a){ clearTimeout(t); t=setTimeout(()=>fn.apply(this,a), wait); }; }
 
-/* alterna idioma e atualiza slide */
-function showLang(lang) {
-    document.getElementById('lang_fr').style.display = (lang === 'fr') ? 'block' : 'none';
-    document.getElementById('lang_es').style.display = (lang === 'es') ? 'block' : 'none';
-    document.getElementById('lang_pt').style.display = (lang === 'pt') ? 'block' : 'none';
-
-    document.getElementById('slide1_fr').style.display = (lang === 'fr') ? 'block' : 'none';
-    document.getElementById('slide1_es').style.display = (lang === 'es') ? 'block' : 'none';
-    document.getElementById('slide1_pt').style.display = (lang === 'pt') ? 'block' : 'none';
-
+/* ---------- idioma ---------- */
+function showLang(lang){
+    document.getElementById('lang_fr').style.display = (lang==='fr') ? 'block' : 'none';
+    document.getElementById('lang_es').style.display = (lang==='es') ? 'block' : 'none';
+    document.getElementById('lang_pt').style.display = (lang==='pt') ? 'block' : 'none';
+    document.getElementById('slide1_fr').style.display = (lang==='fr') ? 'block' : 'none';
+    document.getElementById('slide1_es').style.display = (lang==='es') ? 'block' : 'none';
+    document.getElementById('slide1_pt').style.display = (lang==='pt') ? 'block' : 'none';
     // força recálculo imediato
     applyActiveHeight();
 }
 
-/* navegação por setas */
-function slideMove(direction) {
+/* ---------- navegação ---------- */
+function slideMove(direction){
     const slider = document.getElementById('slider');
-    if (!slider) return;
+    if(!slider) return;
     const width = slider.clientWidth || 0;
     slider.scrollBy({ left: direction * width, behavior: 'smooth' });
     // garante recálculo após animação
     setTimeout(applyActiveHeight, 420);
 }
 
-/* calcula índice do slide mais centrado */
-function getActiveSlideIndex(slider) {
-    const scrollLeft = slider.scrollLeft || 0;
-    const width = slider.clientWidth || 1;
-    return Math.round(scrollLeft / width);
+/* ---------- altura dinâmica robusta ---------- */
+function getActiveIndex(slider){
+    const left = slider.scrollLeft || 0;
+    const w = slider.clientWidth || 1;
+    return Math.round(left / w);
 }
 
-/* aplica altura do slide ativo ao wrapper */
-function applyActiveHeight() {
+function applyActiveHeight(){
     const slider = document.getElementById('slider');
-    const wrapper = document.querySelector('.slider-wrapper');
-    if (!slider || !wrapper) return;
+    const wrapper = document.getElementById('sliderWrapper');
+    if(!slider || !wrapper) return;
     const slides = slider.querySelectorAll('.slide');
-    if (!slides || slides.length === 0) return;
-
-    const index = getActiveSlideIndex(slider);
-    const idx = Math.max(0, Math.min(index, slides.length - 1));
+    if(!slides.length) return;
+    const idx = Math.max(0, Math.min(getActiveIndex(slider), slides.length - 1));
     const active = slides[idx];
-
-    // se o slide contiver iframes que ainda não ajustaram, tenta ler offsetHeight
-    const newHeight = active.offsetHeight || active.getBoundingClientRect().height || 0;
-    if (newHeight > 0) {
-        wrapper.style.height = newHeight + 'px';
-    }
+    // calcula altura real (inclui margens internas)
+    const h = active.offsetHeight || Math.ceil(active.getBoundingClientRect().height) || 0;
+    if(h > 0) wrapper.style.height = h + 'px';
 }
 
-/* inicialização robusta */
-function initSliderAutoHeight() {
+/* inicialização: observers e eventos */
+function initAutoHeight(){
     const slider = document.getElementById('slider');
-    const wrapper = document.querySelector('.slider-wrapper');
-    if (!slider || !wrapper) return;
+    const wrapper = document.getElementById('sliderWrapper');
+    if(!slider || !wrapper) return;
 
-    // recálculo inicial
+    // recálculo inicial imediato
     applyActiveHeight();
 
-    // recálculo durante scroll (debounced)
-    const debounced = debounce(applyActiveHeight, 80);
-    slider.addEventListener('scroll', debounced, { passive: true });
-
-    // recálculo ao redimensionar a janela
+    // debounced scroll/resize
+    const deb = debounce(applyActiveHeight, 80);
+    slider.addEventListener('scroll', deb, { passive:true });
     window.addEventListener('resize', debounce(applyActiveHeight, 120));
 
-    // ResizeObserver para mudanças internas (texto, imagens, iframes)
-    let ro;
+    // ResizeObserver para mudanças internas
+    let ro = null;
     try {
-        ro = new ResizeObserver(debounce(() => {
-            applyActiveHeight();
-        }, 60));
-    } catch (e) {
-        ro = null;
-    }
+        ro = new ResizeObserver(debounce(() => applyActiveHeight(), 60));
+    } catch(e){ ro = null; }
 
+    // MutationObserver para mudanças no DOM (iframes que injectam conteúdo)
+    let mo = null;
+    try {
+        mo = new MutationObserver(debounce(() => applyActiveHeight(), 80));
+        mo.observe(slider, { childList:true, subtree:true, attributes:true, characterData:true });
+    } catch(e){ mo = null; }
+
+    // observar cada slide e seus elementos
     slider.querySelectorAll('.slide').forEach(slide => {
-        if (ro) {
-            try { ro.observe(slide); } catch(e) {}
-        }
-        // imagens
+        if(ro) try{ ro.observe(slide); } catch(e){}
         slide.querySelectorAll('img').forEach(img => {
-            if (!img.complete) img.addEventListener('load', debounce(applyActiveHeight, 60));
+            if(!img.complete) img.addEventListener('load', debounce(applyActiveHeight, 60));
         });
-        // iframes (YouTube, SoundCloud)
         slide.querySelectorAll('iframe').forEach(iframe => {
             iframe.addEventListener('load', debounce(applyActiveHeight, 80));
-            if (ro) {
-                try { ro.observe(iframe); } catch(e) {}
-            }
+            if(ro) try{ ro.observe(iframe); } catch(e){}
         });
     });
 
-    // fallback: força recálculo após embeds carregarem
-    setTimeout(applyActiveHeight, 600);
+    // fallback: força recálculo várias vezes nos primeiros 2s (cobre embeds lentos)
+    applyActiveHeight();
+    setTimeout(applyActiveHeight, 300);
+    setTimeout(applyActiveHeight, 800);
+    setTimeout(applyActiveHeight, 1500);
 }
 
-/* auto-detect language and init on DOM ready */
-document.addEventListener('DOMContentLoaded', function() {
+/* ---------- inicialização DOM ---------- */
+document.addEventListener('DOMContentLoaded', function(){
     const userLang = navigator.language || navigator.userLanguage || 'pt';
-    if (userLang.startsWith('fr')) showLang('fr');
-    else if (userLang.startsWith('es')) showLang('es');
+    if(userLang.startsWith('fr')) showLang('fr');
+    else if(userLang.startsWith('es')) showLang('es');
     else showLang('pt');
 
-    initSliderAutoHeight();
+    initAutoHeight();
 });
 
-/* expose slideMove globally */
+/* expõe slideMove globalmente */
 window.slideMove = slideMove;
 
-/* DISQUS placeholder: substitui TEU-SUBDOMINIO-DISQUS pelo teu subdomínio */
+/* ---------- Disqus (substituir TEU-SUBDOMINIO-DISQUS) ---------- */
 var disqus_config = function () {
     this.page.url = window.location.href;
     this.page.identifier = "hommage-page";
