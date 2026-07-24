@@ -328,7 +328,13 @@
  * Música: fade-in / fade-out
  ***********************/
 const audio = document.getElementById("musicaMarina");
+// Começar música imediatamente com fade-in
+window.addEventListener('load', () => {
+    fadeIn(audio);
+});
+
 audio.volume = 0; // começa silencioso
+audio.loop = true; // música em loop contínuo
 
 function fadeIn(audio) {
     if (audio.paused) audio.play();
@@ -377,5 +383,11 @@ swiper.on('slideChange', function () {
 });
 
   </script>
+  <hr>
+<p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
+  Música: “Poetas Andaluces” — Aguaviva.  
+  Faixa utilizada exclusivamente para fins de homenagem e sem intenção comercial.
+</p>
+
 </body>
 </html>
