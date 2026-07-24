@@ -49,6 +49,8 @@
         margin-top: 20px;
         margin-bottom: 20px;
         position: relative;
+        overflow: hidden;
+        transition: height 0.3s ease;
     }
 
     .slider {
@@ -121,10 +123,6 @@
         border: none;
         border-top: 1px solid #444;
     }
-    .slider-wrapper {
-    transition: height 0.3s ease;
-}
-
 </style>
 
 </head>
@@ -153,7 +151,7 @@
     <p>Uma página simples dedicada à memória, à partilha e aos testemunhos.</p>
 </div>
 
-<!-- SETAS EM CIMA (discretas) -->
+<!-- SETAS EM CIMA -->
 <div class="slider-nav-top">
     <button onclick="slideMove(-1)">←</button>
     <button onclick="slideMove(1)">→</button>
@@ -163,7 +161,7 @@
 <div class="slider-wrapper">
     <div id="slider" class="slider">
 
-        <!-- SLIDE 1: Texto da homenagem -->
+        <!-- SLIDE 1 -->
         <div class="slide">
             <div id="slide1_fr" style="display:none;">
                 <p>
@@ -194,14 +192,14 @@
             </div>
         </div>
 
-        <!-- SLIDE 2: Vídeo YouTube -->
+        <!-- SLIDE 2 -->
         <div class="slide">
             <div class="video">
                 <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- SLIDE 3: SoundCloud -->
+        <!-- SLIDE 3 -->
         <div class="slide">
             <div class="audio">
                 <iframe 
@@ -214,7 +212,7 @@
             </div>
         </div>
 
-        <!-- SLIDE 4: Futuro conteúdo -->
+        <!-- SLIDE 4 -->
         <div class="slide">
             <p style="opacity:0.7;">
                 Espaço para futuras fotos, textos, ou outros conteúdos que queiras adicionar à homenagem.
@@ -224,7 +222,7 @@
     </div>
 </div>
 
-<!-- SETAS EM BAIXO (bem visíveis) -->
+<!-- SETAS EM BAIXO -->
 <div class="slider-nav-bottom">
     <button onclick="slideMove(-1)">←</button>
     <button onclick="slideMove(1)">→</button>
@@ -244,22 +242,55 @@ function showLang(lang) {
     document.getElementById('slide1_fr').style.display = (lang === 'fr') ? 'block' : 'none';
     document.getElementById('slide1_es').style.display = (lang === 'es') ? 'block' : 'none';
     document.getElementById('slide1_pt').style.display = (lang === 'pt') ? 'block' : 'none';
+
+    updateSliderHeight();
 }
 
-window.onload = function() {
+// auto-detecção da língua
+window.addEventListener('load', () => {
     const userLang = navigator.language || navigator.userLanguage;
 
     if (userLang.startsWith('fr')) showLang('fr');
     else if (userLang.startsWith('es')) showLang('es');
     else showLang('pt');
-};
+});
 
+// SETAS
 function slideMove(direction) {
     const slider = document.getElementById('slider');
     const width = slider.clientWidth;
     slider.scrollBy({ left: direction * width, behavior: 'smooth' });
 }
 
+// ALTURA DINÂMICA
+function updateSliderHeight() {
+    const wrapper = document.querySelector('.slider-wrapper');
+    const activeSlide = document.querySelector('.slide.active');
+    if (activeSlide) {
+        wrapper.style.height = activeSlide.offsetHeight + "px";
+    }
+}
+
+const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+
+// OBSERVER
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            slides.forEach(s => s.classList.remove('active'));
+            entry.target.classList.add('active');
+            updateSliderHeight();
+        }
+    });
+}, {
+    root: slider,
+    threshold: 0.6
+});
+
+slides.forEach(slide => observer.observe(slide));
+
+// DISQUS
 var disqus_config = function () {
     this.page.url = window.location.href;
     this.page.identifier = "hommage-page";
@@ -271,46 +302,6 @@ var disqus_config = function () {
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
 })();
-
-    function updateSliderHeight() {
-    const slider = document.getElementById('slider');
-    const slides = slider.children;
-
-    // posição atual do scroll
-    const scrollLeft = slider.scrollLeft;
-    const width = slider.clientWidth;
-
-    // índice do slide visível
-    const index = Math.round(scrollLeft / width);
-
-    // slide atual
-    const currentSlide = slides[index];
-
-    // altura do slide
-    const newHeight = currentSlide.offsetHeight;
-
-    // aplica altura ao wrapper
-    const wrapper = document.querySelector('.slider-wrapper');
-    wrapper.style.height = newHeight + "px";
-}
-
-// atualizar altura ao carregar
-window.addEventListener('load', updateSliderHeight);
-
-// atualizar altura ao deslizar
-document.getElementById('slider').addEventListener('scroll', function() {
-    updateSliderHeight();
-});
-
-// atualizar altura ao clicar nas setas
-function slideMove(direction) {
-    const slider = document.getElementById('slider');
-    const width = slider.clientWidth;
-    slider.scrollBy({ left: direction * width, behavior: 'smooth' });
-
-    setTimeout(updateSliderHeight, 300);
-}
-
 </script>
 
 </body>
