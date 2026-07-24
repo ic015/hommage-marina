@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Hommage à une vie</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
     body {
         background: #000;
@@ -47,71 +48,65 @@
 </head>
 <body>
 
+<!-- Título fixo da página -->
 <h1>Hommage à une vie</h1>
 
-<p>
-    Une page simple dédiée à la mémoire, au partage et aux témoignages.
-</p>
-<div style="margin-top:40px;">
+<p>Une page simple dédiée à la mémoire, au partage et aux témoignages.</p>
 
-    <!-- Botões de língua -->
-    <div style="text-align:center; margin-bottom:20px;">
-        <button onclick="showLang('pt')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Português</button>
-        <button onclick="showLang('fr')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Français</button>
-        <button onclick="showLang('es')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Español</button>
-    </div>
-
-
-
-
-
-    <!-- Texte en Français -->
-    <div id="lang_fr" style="display:none;">
-        <p>
-            <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
-            Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
-            J’invite tous ceux qui le souhaitent à laisser un témoignage, afin que nous puissions ensemble garder vivante la mémoire de Marina.
-        </p>
-    </div>
-
-    <!-- Texto en Español -->
-    <div id="lang_es" style="display:none;">
-        <p>
-            <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
-            Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para siempre.
-            Invito a todos los que lo deseen a dejar un testimonio, para que juntos mantengamos viva la memoria de Marina.
-        </p>
-    </div>
-
+<!-- Botões de línguas -->
+<div style="text-align:center; margin-top:20px; margin-bottom:30px;">
+    <button onclick="showLang('fr')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Français</button>
+    <button onclick="showLang('es')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Español</button>
+    <button onclick="showLang('pt')" style="margin:5px; padding:8px 16px; background:#111; color:#fff; border:1px solid #444; cursor:pointer;">Português</button>
 </div>
-    <!-- Texto em Português -->
-    <div id="lang_pt" style="display:block;">
-        <p>
-            <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
-            O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
-            Convido todos os que quiserem a deixar um testemunho, para juntos lembrarmos a Marina.
-        </p>
 
-            <!-- Nota universal -->
+<!-- BLOCO FRANCÊS -->
+<div id="lang_fr" style="display:none;">
+    <p>
+        <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
+        Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
+        J’invite tous ceux qui le souhaitent à laisser un témoignage, afin que nous puissions ensemble garder vivante la mémoire de Marina.
+    </p>
+</div>
+
+<!-- BLOCO ESPANHOL -->
+<div id="lang_es" style="display:none;">
+    <p>
+        <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
+        Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para siempre.
+        Invito a todos los que lo deseen a dejar un testimonio, para que juntos mantengamos viva la memoria de Marina.
+    </p>
+</div>
+
+<!-- BLOCO PORTUGUÊS (visível por agora) -->
+<div id="lang_pt" style="display:block;">
+    <p>
+        <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
+        O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
+        Convido todos os que quiserem a deixar um testemunho, para juntos lembrarmos a Marina.
+    </p>
+
     <p style="text-align:center; font-size:0.95em; opacity:0.8; margin-bottom:30px;">
         Escreva na sua própria língua — o importante é a memória que partilha.
     </p>
-    </div>
+</div>
+
 <script>
 function showLang(lang) {
-    document.getElementById('lang_pt').style.display = (lang === 'pt') ? 'block' : 'none';
     document.getElementById('lang_fr').style.display = (lang === 'fr') ? 'block' : 'none';
     document.getElementById('lang_es').style.display = (lang === 'es') ? 'block' : 'none';
+    document.getElementById('lang_pt').style.display = (lang === 'pt') ? 'block' : 'none';
 }
 </script>
 
+<!-- Vídeo -->
 <div class="video">
-    <!-- Substituir VIDEO_ID pelo ID do vídeo do YouTube -->
     <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
 </div>
 
 <hr>
 
+<!-- Comentários Disqus -->
 <div id="disqus_thread"></div>
 
 <script>
