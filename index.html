@@ -365,12 +365,17 @@ function fadeOut(audio) {
 let musicaAtiva = false;     // utilizador ativou som?
 let musicaIniciada = false;  // já começou alguma vez?
 
+function atualizarIconeSom() {
+    const btn = document.getElementById("toggleSound");
+    btn.textContent = musicaAtiva ? "🔊" : "🔇";
+}
+
 function iniciarMusica() {
     if (!musicaIniciada) {
         musicaIniciada = true;
-        musicaAtiva = true;
+        musicaAtiva = true;      // música fica ativa automaticamente
         fadeIn(audio);
-        document.getElementById("toggleSound").textContent = "🔊";
+        atualizarIconeSom();     // sincroniza o botão
     }
 }
 
@@ -378,11 +383,12 @@ document.getElementById("toggleSound").addEventListener("click", () => {
     musicaAtiva = !musicaAtiva;
 
     if (musicaAtiva) {
-        iniciarMusica(); // garante fade-in inicial
+        iniciarMusica();         // garante fade-in inicial
     } else {
         fadeOut(audio);
-        document.getElementById("toggleSound").textContent = "🔈";
     }
+
+    atualizarIconeSom();         // sincroniza sempre
 });
 
 /***********************
