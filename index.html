@@ -218,23 +218,23 @@
       pagination: { el: '.swiper-pagination', clickable: true }
     });
 
-    // parar media ao mudar de slide
+    // PAUSAR MEDIA AO MUDAR DE SLIDE
     swiper.on('slideChange', function () {
-        stopAllMedia();
+        pauseMedia();
     });
 
-    // parar YouTube + SoundCloud
-    function stopAllMedia() {
+    // PAUSA YouTube + SoundCloud
+    function pauseMedia() {
 
-        // parar YouTube
+        // Pausar YouTube
         document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
             iframe.contentWindow.postMessage(
-                '{"event":"command","func":"stopVideo","args":""}',
+                '{"event":"command","func":"pauseVideo","args":""}',
                 '*'
             );
         });
 
-        // parar SoundCloud
+        // Pausar SoundCloud
         document.querySelectorAll('iframe[src*="soundcloud"]').forEach(iframe => {
             iframe.contentWindow.postMessage(
                 { method: 'pause' },
