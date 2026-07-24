@@ -250,6 +250,7 @@ window.addEventListener('load', () => {
     else if (userLang.startsWith('es')) showLang('es');
     else showLang('pt');
 
+    // ALTURA INICIAL — ESSENCIAL
     updateSliderHeight();
 });
 
@@ -259,10 +260,11 @@ function slideMove(direction) {
     const width = slider.clientWidth;
     slider.scrollBy({ left: direction * width, behavior: 'smooth' });
 
+    // garantir atualização após scroll suave
     setTimeout(updateSliderHeight, 400);
 }
 
-// ALTURA DINÂMICA — versão robusta
+// ALTURA DINÂMICA — versão final
 function updateSliderHeight() {
     const slider = document.getElementById('slider');
     const slides = document.querySelectorAll('.slide');
@@ -298,6 +300,7 @@ var disqus_config = function () {
     (d.head || d.body).appendChild(s);
 })();
 </script>
+
 
 </body>
 </html>
