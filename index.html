@@ -250,8 +250,7 @@ window.addEventListener('load', () => {
     else if (userLang.startsWith('es')) showLang('es');
     else showLang('pt');
 
-    // ALTURA INICIAL — ESSENCIAL
-    updateSliderHeight();
+    updateSliderHeight(); // ← altura inicial
 });
 
 // SETAS
@@ -260,8 +259,7 @@ function slideMove(direction) {
     const width = slider.clientWidth;
     slider.scrollBy({ left: direction * width, behavior: 'smooth' });
 
-    // garantir atualização após scroll suave
-    setTimeout(updateSliderHeight, 400);
+    setTimeout(updateSliderHeight, 400); // ← garante ajuste após scroll suave
 }
 
 // ALTURA DINÂMICA — versão final
@@ -273,10 +271,9 @@ function updateSliderHeight() {
     const scrollLeft = slider.scrollLeft;
     const width = slider.clientWidth;
 
-    // índice do slide mais centrado
     const index = Math.round(scrollLeft / width);
-
     const activeSlide = slides[index];
+
     if (activeSlide) {
         wrapper.style.height = activeSlide.offsetHeight + "px";
     }
@@ -286,19 +283,6 @@ function updateSliderHeight() {
 document.getElementById('slider').addEventListener('scroll', () => {
     updateSliderHeight();
 });
-
-// DISQUS
-var disqus_config = function () {
-    this.page.url = window.location.href;
-    this.page.identifier = "hommage-page";
-};
-
-(function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://TEU-SUBDOMINIO-DISQUS.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-})();
 </script>
 
 
