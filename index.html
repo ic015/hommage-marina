@@ -110,15 +110,25 @@
         <!-- Slide 2: YouTube -->
         <div class="swiper-slide">
           <div class="video">
-            <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1" allowfullscreen></iframe>
           </div>
         </div>
 
         <!-- Slide 3: SoundCloud -->
         <div class="swiper-slide">
-          <iframe width="100%" height="166" scrolling="no" frameborder="no"
-            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9&color=%23ffffff&inverse=false&auto_play=false&show_user=true">
-          </iframe>
+          <div class="slide-content">
+
+            <p style="opacity:.85; margin-bottom:10px;">
+              Emissão Falseta nº9 — Programa de rádio dedicado ao flamenco.
+            </p>
+
+            <iframe
+              width="100%" height="166"
+              scrolling="no" frameborder="no"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9#t=1:23&color=%23ffffff&inverse=false&auto_play=false&show_user=true">
+            </iframe>
+
+          </div>
         </div>
 
         <!-- Slide 4 -->
@@ -207,6 +217,31 @@
       autoHeight: true,
       pagination: { el: '.swiper-pagination', clickable: true }
     });
+
+    // parar media ao mudar de slide
+    swiper.on('slideChange', function () {
+        stopAllMedia();
+    });
+
+    // parar YouTube + SoundCloud
+    function stopAllMedia() {
+
+        // parar YouTube
+        document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
+            iframe.contentWindow.postMessage(
+                '{"event":"command","func":"stopVideo","args":""}',
+                '*'
+            );
+        });
+
+        // parar SoundCloud
+        document.querySelectorAll('iframe[src*="soundcloud"]').forEach(iframe => {
+            iframe.contentWindow.postMessage(
+                { method: 'pause' },
+                '*'
+            );
+        });
+    }
 
     document.getElementById('prevTop').onclick = () => swiper.slidePrev();
     document.getElementById('nextTop').onclick = () => swiper.slideNext();
