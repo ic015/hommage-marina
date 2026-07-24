@@ -328,23 +328,14 @@
  * Música: fade-in / fade-out
  ***********************/
 const audio = document.getElementById("musicaMarina");
-let musicaIniciada = false;
-
-function iniciarMusica() {
-    if (!musicaIniciada) {
-        musicaIniciada = true;
-        fadeIn(audio);
-    }
-}
-
-audio.volume = 0; // começa silencioso
-audio.loop = true; // música em loop contínuo
+audio.volume = 0.2;     // começa suave
+audio.loop = true;      // loop contínuo
 
 function fadeIn(audio) {
     if (audio.paused) audio.play();
     let v = audio.volume;
     const i = setInterval(() => {
-        v += 0.05;
+        v += 0.03; // suave mas perceptível
         if (v >= 1) {
             v = 1;
             clearInterval(i);
@@ -356,7 +347,7 @@ function fadeIn(audio) {
 function fadeOut(audio) {
     let v = audio.volume;
     const i = setInterval(() => {
-        v -= 0.05;
+        v -= 0.03;
         if (v <= 0) {
             v = 0;
             audio.pause();
@@ -367,25 +358,55 @@ function fadeOut(audio) {
 }
 
 /***********************
+ * Botão de som
+ ***********************/
+let musicaAtiva = false;     // utilizador ativou som?
+let musicaIniciada = false;  // já começou alguma vez?
+
+function iniciarMusica() {
+    if (!musicaIniciada) {
+        musicaIniciada = true;
+        musicaAtiva = true;
+        fadeIn(audio);
+        document.getElementById("toggleSound").textContent = "🔊";
+    }
+}
+
+document.getElementById("toggleSound").addEventListener("click", () => {
+    musicaAtiva = !musicaAtiva;
+
+    if (musicaAtiva) {
+        iniciarMusica(); // garante fade-in inicial
+    } else {
+        fadeOut(audio);
+        document.getElementById("toggleSound").textContent = "🔈";
+    }
+});
+
+/***********************
+ * Música inicia na primeira interação
+ ***********************/
+window.addEventListener('scroll', iniciarMusica, { once: true });
+window.addEventListener('click', iniciarMusica, { once: true });
+window.addEventListener('keydown', iniciarMusica, { once: true });
+
+/***********************
  * Música + Swiper
  ***********************/
 swiper.on('slideChange', function () {
+    pauseMedia(); // já existe no teu código
 
-    // Pausar YouTube e SoundCloud (já tens)
-    pauseMedia();
-
-    // Detectar tipo de slide
     const activeSlide = swiper.slides[swiper.activeIndex];
     const tipo = activeSlide.dataset.tipo || "";
 
-    // Regras da música
+    if (!musicaAtiva) return; // só toca se o utilizador ativou
+
     if (tipo === "foto" || tipo === "foto-homenagem") {
         fadeIn(audio);
     } else {
         fadeOut(audio);
     }
 });
-
   </script>
   <hr>
 <p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
