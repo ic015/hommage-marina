@@ -68,7 +68,8 @@
     <div class="swiper my-swiper">
       <div class="swiper-wrapper">
 
-        <div class="swiper-slide">
+        <div class="swiper-slide" data-tipo="foto-homenagem">
+
           <div class="slide-content">
             <div id="slide1_fr" style="display:none;"><p>
             <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
@@ -133,6 +134,7 @@
 
     <div id="disqus_thread"></div>
   </div>
+	<audio id="musicaMarina" src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3" preload="auto"></audio>
 
   <!-- libs -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
@@ -322,6 +324,57 @@
 
     // inicializa SoundCloud widget se possível
     initSoundCloudWidget();
+/***********************
+ * Música: fade-in / fade-out
+ ***********************/
+const audio = document.getElementById("musicaMarina");
+audio.volume = 0; // começa silencioso
+
+function fadeIn(audio) {
+    if (audio.paused) audio.play();
+    let v = audio.volume;
+    const i = setInterval(() => {
+        v += 0.02;
+        if (v >= 1) {
+            v = 1;
+            clearInterval(i);
+        }
+        audio.volume = v;
+    }, 60);
+}
+
+function fadeOut(audio) {
+    let v = audio.volume;
+    const i = setInterval(() => {
+        v -= 0.02;
+        if (v <= 0) {
+            v = 0;
+            audio.pause();
+            clearInterval(i);
+        }
+        audio.volume = v;
+    }, 60);
+}
+
+/***********************
+ * Música + Swiper
+ ***********************/
+swiper.on('slideChange', function () {
+
+    // Pausar YouTube e SoundCloud (já tens)
+    pauseMedia();
+
+    // Detectar tipo de slide
+    const activeSlide = swiper.slides[swiper.activeIndex];
+    const tipo = activeSlide.dataset.tipo || "";
+
+    // Regras da música
+    if (tipo === "foto" || tipo === "foto-homenagem") {
+        fadeIn(audio);
+    } else {
+        fadeOut(audio);
+    }
+});
 
   </script>
 </body>
