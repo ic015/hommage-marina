@@ -377,7 +377,7 @@ function fadeOut(audio) {
  * Estado da música
  ***********************/
 let musicaAtiva = false;     // utilizador ativou som?
-let musicaIniciada = false;  // já começou alguma vez?
+let musicaIniciada = false;  // já tocou alguma vez?
 
 function atualizarIconeSom() {
     const btn = document.getElementById("toggleSound");
@@ -417,7 +417,6 @@ document.getElementById("toggleSound").addEventListener("click", () => {
     atualizarIconeSom();
 });
 
-
 /***********************
  * Música + Swiper
  ***********************/
@@ -427,15 +426,18 @@ swiper.on('slideChange', function () {
     const activeSlide = swiper.slides[swiper.activeIndex];
     const tipo = activeSlide.dataset.tipo || "";
 
-    if (!musicaAtiva) return; // só toca se o utilizador ativou
+    if (!musicaAtiva) {
+        fadeOut(audio);
+        return;
+    }
 
-    if (tipo === "foto" || tipo === "foto-homenagem") {
+    // Se o slide permite música → garantir que toca SEMPRE
+    if (slidePermiteMusica()) {
         fadeIn(audio);
     } else {
         fadeOut(audio);
     }
 });
-
 
   </script>
   <hr>
