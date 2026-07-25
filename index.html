@@ -32,6 +32,23 @@
     margin: 0 auto 20px auto;
     border-radius: 6px;
 }
+.sound-btn {
+    margin-left: 10px;
+    padding: 10px 16px;
+    font-size: 1.4em;
+    background: var(--panel);
+    color: var(--fg);
+    border: 2px solid var(--border);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.sound-btn:hover {
+    background: var(--fg);
+    color: var(--panel);
+    transform: scale(1.08);
+}
 
   </style>
 </head>
@@ -401,14 +418,14 @@ document.getElementById("toggleSound").addEventListener("click", () => {
 
     if (musicaAtiva) {
 
-        // Se o slide atual NÃO permite música → não tocar
-        if (!slidePermiteMusica()) {
-            atualizarIconeSom();
-            return;
+        // Se o slide atual permite música → tocar imediatamente
+        if (slidePermiteMusica()) {
+            musicaIniciada = true;
+            fadeIn(audio);
+        } else {
+            // Slide não permite música → manter som ativo mas silencioso
+            fadeOut(audio);
         }
-
-        musicaIniciada = true;
-        fadeIn(audio);
 
     } else {
         fadeOut(audio);
@@ -422,9 +439,6 @@ document.getElementById("toggleSound").addEventListener("click", () => {
  ***********************/
 swiper.on('slideChange', function () {
     pauseMedia(); // já existe no teu código
-
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    const tipo = activeSlide.dataset.tipo || "";
 
     if (!musicaAtiva) {
         fadeOut(audio);
