@@ -400,14 +400,23 @@ document.getElementById("toggleSound").addEventListener("click", () => {
     musicaAtiva = !musicaAtiva;
 
     if (musicaAtiva) {
+
+        // Se o slide atual NÃO permite música → não tocar
+        if (!slidePermiteMusica()) {
+            atualizarIconeSom();
+            return;
+        }
+
         musicaIniciada = true;
         fadeIn(audio);
+
     } else {
         fadeOut(audio);
     }
 
     atualizarIconeSom();
 });
+
 
 /***********************
  * Música + Swiper
