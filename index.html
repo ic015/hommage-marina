@@ -108,6 +108,29 @@
     max-width: 95%;
     max-height: 95%;
 }
+.zoom-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.zoom-icon {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-size: 24px;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 4px 6px;
+    border-radius: 6px;
+    pointer-events: none; /* não bloqueia o clique na imagem */
+}
+
+/* Só aparece no telemóvel */
+@media (min-width: 768px) {
+    .zoom-icon {
+        display: none;
+    }
+}
 
 
   </style>
@@ -199,12 +222,16 @@
         </div>
 		<div class="swiper-slide" data-tipo="foto">
 		  <div class="slide-content">
-		    <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
-		         alt="Marina Lourenço — Entretien Flamenco"
-		         class="foto-slide"
-		         onclick="abrirLightbox(this.src)">
+		    <div class="zoom-wrapper">
+		      <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
+		           alt="Marina Lourenço — Entretien Flamenco"
+		           class="foto-slide"
+		           onclick="abrirLightbox(this.src)">
+		      <div class="zoom-icon">🔍</div>
+		    </div>
 		  </div>
 		</div>
+
 
         <div class="swiper-slide" data-tipo="youtube">
           <div class="video slide-content">
