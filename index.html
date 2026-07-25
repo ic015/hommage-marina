@@ -112,11 +112,11 @@
         </div>
 
         <!-- YouTube slide: substitui VIDEO_ID -->
-        <div class="swiper-slide">
+		<div class="swiper-slide" data-tipo="youtube">
           <div class="video slide-content">
             <p style="opacity:.85; margin-bottom:10px;">Hommage à Marina Cortes Lourenço.</p>
             <div id="youtube-player-wrap">
-              <iframe id="youtube_iframe"
+              <iframe id="youtube_iframe_1"
                 src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1&cb=20260723&origin=" 
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
@@ -138,12 +138,11 @@
           </div>
         </div>
 
-        <!-- YouTube slide: substitui VIDEO_ID -->
-        <div class="swiper-slide">
+        <div class="swiper-slide" data-tipo="youtube">
           <div class="video slide-content">
             <p style="opacity:.85; margin-bottom:10px;">Qi Yoga Pilates</p>
             <div id="youtube-player-wrap">
-              <iframe id="youtube_iframe"
+              <iframe id="youtube_iframe_2"
                 src="https://www.youtube.com/embed/6z-jzUNWT4o?enablejsapi=1&cb=20260723&origin=" 
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
@@ -294,16 +293,18 @@
      ***********************/
     function pauseMedia() {
       // YouTube: usar API se disponível
-      try {
-        if (ytPlayer && typeof ytPlayer.pauseVideo === 'function') {
-          ytPlayer.pauseVideo();
-        } else {
-          // fallback: enviar postMessage (pode não funcionar se player não inicializado)
-          document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
-            iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-          });
-        }
-      } catch (e) { console.warn('YT pause error', e); }
+      // Pausar TODOS os vídeos YouTube
+		document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
+		    try {
+		        iframe.contentWindow.postMessage(
+		            '{"event":"command","func":"pauseVideo","args":""}',
+		            '*'
+		        );
+		    } catch(e) {
+		        console.warn('YT pause error', e);
+		    }
+		});
+
 
       // SoundCloud: usar widget API se disponível
       try {
