@@ -94,11 +94,19 @@
     pointer-events: none;
 }
 
-.video iframe {
-    pointer-events: auto;
+#lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
-.video {
-    touch-action: pan-y;
+
+#lightbox img {
+    max-width: 95%;
+    max-height: 95%;
 }
 
 
@@ -193,7 +201,8 @@
 		  <div class="slide-content">
 		    <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
 		         alt="Marina Lourenço — Entretien Flamenco"
-		         class="foto-slide">
+		         class="foto-slide
+				 onclick="abrirLightbox(this.src)">
 		  </div>
 		</div>
 
@@ -234,6 +243,7 @@
 
     <hr>
 
+	<div id="lightbox"></div>
     <div id="disqus_thread"></div>
   </div>
 	<audio id="musicaMarina" src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3" preload="auto"></audio>
@@ -543,6 +553,17 @@ swiper.on('slideChange', function () {
     }
 });
 
+function abrirLightbox(src) {
+    const lb = document.getElementById('lightbox');
+    lb.innerHTML = `<img src="${src}" onclick="fecharLightbox()">`;
+    lb.style.display = 'flex';
+}
+
+function fecharLightbox() {
+    document.getElementById('lightbox').style.display = 'none';
+}
+
+	  
   </script>
   <hr>
 <p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
