@@ -49,6 +49,13 @@
     color: var(--panel);
     transform: scale(1.08);
 }
+.foto-slide {
+    width: 100%;
+    max-width: 900px;   /* igual ao vídeo, fica harmonioso */
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
 
   </style>
 </head>
@@ -128,7 +135,7 @@
         <!-- SoundCloud slide -->
         <div class="swiper-slide">
           <div class="slide-content">
-            <p style="opacity:.85; margin-bottom:10px;">Emissão Falseta nº9 — Programa de rádio dedicado ao flamenco.
+            <p style="opacity:.85; margin-bottom:10px;">Émission Falseta n°9 — Programme radio dédié au flamenco
             Cet épisode est aussi l’occasion de rendre hommage à Marina Lourenço, fondatrice de l’actuelle "Peña Copas y Compás"</p>
 
             <!-- iframe do SoundCloud -->
@@ -137,6 +144,13 @@
             </iframe>
           </div>
         </div>
+		<div class="swiper-slide" data-tipo="foto">
+		  <div class="slide-content">
+		    <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
+		         alt="Marina Lourenço — Entretien Flamenco"
+		         class="foto-slide">
+		  </div>
+		</div>
 
         <div class="swiper-slide" data-tipo="youtube">
           <div class="video slide-content">
