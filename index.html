@@ -330,7 +330,7 @@
  * Música: fade-in / fade-out com cancelamento
  ***********************/
 const audio = document.getElementById("musicaMarina");
-audio.volume = 0.2;     // começa suave
+audio.volume = 0.2;     // volume inicial suave
 audio.loop = true;      // loop contínuo
 
 let fadeInInterval = null;
@@ -339,14 +339,13 @@ let fadeOutInterval = null;
 function fadeIn(audio) {
     if (audio.paused) audio.play();
 
-    // cancelar fade-out se estiver a correr
     clearInterval(fadeOutInterval);
     fadeOutInterval = null;
 
     let v = audio.volume;
 
     fadeInInterval = setInterval(() => {
-        v += 0.03; // suave mas perceptível
+        v += 0.03;
         if (v >= 1) {
             v = 1;
             clearInterval(fadeInInterval);
@@ -357,7 +356,6 @@ function fadeIn(audio) {
 }
 
 function fadeOut(audio) {
-    // cancelar fade-in se estiver a correr
     clearInterval(fadeInInterval);
     fadeInInterval = null;
 
@@ -396,33 +394,13 @@ function slidePermiteMusica() {
 }
 
 /***********************
- * Iniciar música automaticamente (se fizer sentido)
- ***********************/
-function iniciarMusica() {
-    if (musicaIniciada) return;
-
-    // só inicia automaticamente se o slide atual permitir música
-    if (!slidePermiteMusica()) {
-        // cancelar qualquer fade-in que tenha começado
-        clearInterval(fadeInInterval);
-        fadeInInterval = null;
-        return;
-    }
-
-    musicaIniciada = true;
-    musicaAtiva = true;
-    fadeIn(audio);
-    atualizarIconeSom();
-}
-
-/***********************
- * Botão de som
+ * Botão de som (único gatilho oficial)
  ***********************/
 document.getElementById("toggleSound").addEventListener("click", () => {
     musicaAtiva = !musicaAtiva;
 
     if (musicaAtiva) {
-        musicaIniciada = true; // utilizador quer música
+        musicaIniciada = true;
         fadeIn(audio);
     } else {
         fadeOut(audio);
@@ -430,13 +408,6 @@ document.getElementById("toggleSound").addEventListener("click", () => {
 
     atualizarIconeSom();
 });
-
-/***********************
- * Música inicia na primeira interação
- ***********************/
-window.addEventListener('scroll', iniciarMusica, { once: true });
-window.addEventListener('click', iniciarMusica, { once: true });
-window.addEventListener('keydown', iniciarMusica, { once: true });
 
 /***********************
  * Música + Swiper
@@ -456,12 +427,12 @@ swiper.on('slideChange', function () {
     }
 });
 
+
   </script>
   <hr>
 <p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
   Música: “Poetas Andaluces” — Aguaviva.  
-  Faixa utilizada exclusivamente para fins de homenagem e sem intenção comercial.
 </p>
-
+<br>
 </body>
 </html>
