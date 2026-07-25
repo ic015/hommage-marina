@@ -177,11 +177,16 @@
   <script src="https://w.soundcloud.com/player/api.js"></script>
 
   <script>
-    /***********************
-     * Configurações
-     ***********************/
-    const YT_VIDEO_ID = 'OEvdBX5_Fy0'; // substitui por um id real
-    const soundcloudStartSec = 720; // 12:00 = 720 segundos (se quiseres outro tempo, altera aqui)
+	/***********************
+	 * Configurações
+	 ***********************/
+	const YT_VIDEO_ID = 'OEvdBX5_Fy0'; // id real do primeiro vídeo
+	const soundcloudStartSec = 720;     // 12:00
+	
+	// Preencher o iframe do primeiro vídeo
+	document.getElementById("youtube_iframe_1").src =
+    `https://www.youtube.com/embed/${YT_VIDEO_ID}?enablejsapi=1&cb=20260723&origin=`;
+
 
     /***********************
      * Detecção de língua (mantém o teu comportamento)
