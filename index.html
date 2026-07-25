@@ -83,12 +83,14 @@
     padding-bottom: 30px; /* espaço real para a paginação */
 }
 .foto-slide {
-    touch-action: pinch-zoom;
+    pointer-events: auto;
+    touch-action: manipulation;
 }
-img {
-    max-width: 100%;
-    height: auto;
+
+.swiper-slide {
+    overflow: visible !important;
 }
+
 
   </style>
 </head>
