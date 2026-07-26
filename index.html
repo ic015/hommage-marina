@@ -4,28 +4,67 @@
 <head>
   <meta charset="utf-8" />
  <!-- SEO básico -->
-<title>Marina Lourenço — Hommage à une vie</title>
-<meta name="description" content="Uma homenagem simples e digna à vida de Marina Lourenço. Partilhas, memórias e testemunhos de quem a conheceu.">
+<title>Hommage à Marina Lourenço</title>
+<meta name="description" content="Un hommage simple et digne à la vie de Marina Lourenço. Souvenirs, messages et témoignages de ceux qui l'ont connue.">
 
-<!-- Canonical -->
-<link rel="canonical" href="https://ic015.github.io/hommage/">
+<link rel="canonical" href="https://ic015.github.io/hommage-marina/">
 
-<!-- Open Graph (Facebook, WhatsApp, Messenger, Instagram DM, Telegram, LinkedIn) -->
-<meta property="og:title" content="Marina Lourenço — Hommage à une vie">
-<meta property="og:description" content="Uma homenagem à vida, sensibilidade e presença de Marina Lourenço. Partilhe o seu testemunho.">
-<meta property="og:image" content="https://ic015.github.io/hommage/assets/img/marina_cortes.jpg">
-<meta property="og:url" content="https://ic015.github.io/hommage/">
+<meta property="og:title" content="Hommage à Marina Lourenço">
+<meta property="og:description" content="Un hommage à la sensibilité, à la présence et à la vie de Marina Lourenço. Partagez votre témoignage.">
+<meta property="og:image" content="https://ic015.github.io/hommage-marina/assets/img/marina_cortes.jpg">
+<meta property="og:url" content="https://ic015.github.io/hommage-marina/">
 <meta property="og:type" content="article">
 
-<!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Marina Lourenço — Hommage à une vie">
-<meta name="twitter:description" content="Uma homenagem à vida, sensibilidade e presença de Marina Lourenço. Partilhe o seu testemunho.">
-<meta name="twitter:image" content="https://ic015.github.io/hommage/assets/img/marina_cortes.jpg">
+<meta name="twitter:title" content="Hommage à Marina Lourenço">
+<meta name="twitter:description" content="Un hommage à la sensibilité, à la présence et à la vie de Marina Lourenço. Partagez votre témoignage.">
+<meta name="twitter:image" content="https://ic015.github.io/hommage-marina/assets/img/marina_cortes.jpg">
 
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=2">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=2">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+<script>
+(function() {
+    const lang = navigator.language.toLowerCase();
+
+    let meta = {
+        fr: {
+            title: "Hommage à Marina Lourenço",
+            desc: "Un hommage simple et digne à la vie de Marina Lourenço. Souvenirs, messages et témoignages de ceux qui l'ont connue."
+        },
+        pt: {
+            title: "Homenagem a Marina Lourenço",
+            desc: "Uma homenagem simples e digna à vida de Marina Lourenço. Partilhas, memórias e testemunhos de quem a conheceu."
+        },
+        es: {
+            title: "Homenaje a Marina Lourenço",
+            desc: "Un homenaje sencillo y digno a la vida de Marina Lourenço. Recuerdos, mensajes y testimonios de quienes la conocieron."
+        }
+    };
+
+    let chosen = meta.fr; // base francesa
+
+    if (lang.startsWith("pt")) chosen = meta.pt;
+    else if (lang.startsWith("es")) chosen = meta.es;
+
+    // Atualiza <title>
+    document.title = chosen.title;
+
+    // Atualiza meta description
+    document.querySelector('meta[name="description"]').setAttribute("content", chosen.desc);
+
+    // Atualiza Open Graph (para o visitante, não para Facebook)
+    document.querySelector('meta[property="og:title"]').setAttribute("content", chosen.title);
+    document.querySelector('meta[property="og:description"]').setAttribute("content", chosen.desc);
+
+    // Atualiza Twitter
+    document.querySelector('meta[name="twitter:title"]').setAttribute("content", chosen.title);
+    document.querySelector('meta[name="twitter:description"]').setAttribute("content", chosen.desc);
+})();
+</script>
+
   <style>
     :root { --bg:#000; --fg:#fff; --panel:#111; --border:#444; }
     html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif;}
@@ -288,6 +327,16 @@
       <button class="nav-btn" id="prevBottom">←</button>
       <button class="nav-btn" id="nextBottom">→</button>
     </div>
+<a class="share-facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
+   target="_blank"
+   rel="noopener"
+   style="display:inline-flex;align-items:center;gap:8px;
+          padding:10px 16px;background:#1877f2;color:white;
+          border-radius:6px;text-decoration:none;font-size:1.05em;">
+    <span style="font-size:1.3em;">📘</span>
+    Partilhar no Facebook
+</a>
 
     <hr>
 
