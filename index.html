@@ -27,9 +27,6 @@
   <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=2">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-  <!-- ========================= -->
-  <!-- CSS LIMPO E CORRIGIDO     -->
-  <!-- ========================= -->
   <style>
     :root { --bg:#000; --fg:#fff; --panel:#111; --border:#444; }
 
@@ -222,7 +219,6 @@
       .zoom-icon{ display:none; }
     }
 
-    /* BOTÕES DE AÇÃO */
     .action-btn{
       display:inline-flex;
       align-items:center;
@@ -247,19 +243,16 @@
       color:white;
     }
 
-    /* Remover reação Funny */
     .reaction-funny,
     [data-reaction="funny"]{
       display:none !important;
     }
-
   </style>
 </head>
 
 <body>
 <div class="page">
 
-  <!-- FOTO NO TOPO -->
   <div class="foto-topo">
     <img src="assets/img/marina_cortes.jpg" class="foto-marina">
   </div>
@@ -271,7 +264,6 @@
     <button onclick="showLang('pt')">PT</button>
   </div>
 
-  <!-- TÍTULOS MULTILÍNGUE -->
   <div id="lang_fr" style="display:none;">
     <h1>Hommage à une vie</h1>
     <p>À la mémoire de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
@@ -287,17 +279,14 @@
     <p>À memória de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
   </div>
 
-  <!-- NAV TOP -->
   <div class="top-nav">
     <button class="nav-btn" id="prevTop">←</button>
     <button class="nav-btn" id="nextTop">→</button>
   </div>
 
-  <!-- SWIPER -->
   <div class="swiper my-swiper">
     <div class="swiper-wrapper">
 
-      <!-- Slide 1 — Texto -->
       <div class="swiper-slide" data-tipo="foto-homenagem">
         <div class="slide-content">
 
@@ -328,7 +317,6 @@
         </div>
       </div>
 
-      <!-- YouTube 1 -->
       <div class="swiper-slide" data-tipo="youtube">
         <div class="video slide-content">
           <p style="opacity:.85; margin-bottom:10px;">Hommage à Marina Cortes Lourenço.</p>
@@ -343,7 +331,6 @@
         </div>
       </div>
 
-      <!-- SoundCloud -->
       <div class="swiper-slide">
         <div class="slide-content">
           <p style="opacity:.85; margin-bottom:10px;">
@@ -359,7 +346,6 @@
         </div>
       </div>
 
-      <!-- Foto 1 -->
       <div class="swiper-slide" data-tipo="foto">
         <div class="slide-content">
           <div class="zoom-wrapper">
@@ -372,7 +358,6 @@
         </div>
       </div>
 
-      <!-- YouTube 2 -->
       <div class="swiper-slide" data-tipo="youtube">
         <div class="video slide-content">
           <p style="opacity:.85; margin-bottom:10px;">Qi Yoga Pilates</p>
@@ -387,7 +372,6 @@
         </div>
       </div>
 
-      <!-- Foto 2 -->
       <div class="swiper-slide" data-tipo="foto">
         <div class="slide-content">
           <img src="assets/img/marina_e_canito.jpg"
@@ -396,7 +380,6 @@
         </div>
       </div>
 
-      <!-- Foto 3 -->
       <div class="swiper-slide" data-tipo="foto">
         <div class="slide-content">
           <img src="assets/img/marina_meditacao2.jpg"
@@ -410,13 +393,11 @@
     <div class="swiper-pagination"></div>
   </div>
 
-  <!-- NAV BOTTOM -->
   <div class="bottom-nav">
     <button class="nav-btn" id="prevBottom">←</button>
     <button class="nav-btn" id="nextBottom">→</button>
   </div>
 
-  <!-- Botões multilíngues -->
   <a id="shareFacebookBtn" class="action-btn fb-btn"
      href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
      target="_blank" rel="noopener">
@@ -429,27 +410,20 @@
 
   <hr>
 
-  <!-- Comentários -->
   <div id="disqus_thread"></div>
 
-</div> <!-- fecha .page -->
+</div>
 
-<!-- Lightbox -->
 <div id="lightbox"></div>
 
-<!-- Música -->
 <audio id="musicaMarina"
        src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3"
        preload="auto"></audio>
 
-<!-- libs -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="https://w.soundcloud.com/player/api.js"></script>
 
-<!-- ========================= -->
-<!-- SCRIPTS FINAIS LIMPOS     -->
-<!-- ========================= -->
 <script>
 /***********************
  * Configurações
@@ -511,7 +485,7 @@ function loadDisqus(lang) {
 }
 
 /***********************
- * Inicializar Swiper
+ * Swiper
  ***********************/
 const swiper = new Swiper('.my-swiper', {
   slidesPerView: 1,
@@ -532,9 +506,9 @@ let ytPlayer = null;
 let scWidget = null;
 let scIframe = document.getElementById('soundcloud_iframe');
 
-// 1) YouTube API
 function onYouTubeIframeAPIReady() {
   const iframe = document.getElementById('youtube_iframe');
+  if (!iframe) return;
   iframe.src = 'https://www.youtube.com/embed/' + YT_VIDEO_ID +
                '?enablejsapi=1&origin=' + location.origin;
 
@@ -546,7 +520,6 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
-// 2) SoundCloud Widget
 function initSoundCloudWidget() {
   if (!scIframe) return;
 
@@ -569,10 +542,9 @@ if (window.SC && SC.Widget) {
 }
 
 /***********************
- * Pausar media ao trocar slide
+ * Pausar media
  ***********************/
 function pauseMedia() {
-  // Pausar YouTube
   document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
     try {
       iframe.contentWindow.postMessage(
@@ -584,7 +556,6 @@ function pauseMedia() {
     }
   });
 
-  // Pausar SoundCloud
   try {
     if (scWidget && typeof scWidget.pause === 'function') {
       scWidget.pause();
@@ -619,22 +590,7 @@ const initialLang = detectPreferredLanguage();
 showLang(initialLang);
 
 /***********************
- * Debug
- ***********************/
-console.log('Inicializado: swiper + players (aguarda APIs).');
-
-window.addEventListener('message', () => {}, false);
-
-if (window.YT && window.YT.Player) {
-  if (typeof onYouTubeIframeAPIReady === 'function') {
-    onYouTubeIframeAPIReady();
-  }
-}
-
-initSoundCloudWidget();
-
-/***********************
- * Música: fade-in / fade-out
+ * Música
  ***********************/
 const audio = document.getElementById("musicaMarina");
 audio.volume = 0.2;
@@ -680,11 +636,7 @@ function fadeOut(audio) {
   }, 60);
 }
 
-/***********************
- * Estado da música
- ***********************/
 let musicaAtiva = false;
-let musicaIniciada = false;
 
 function atualizarIconeSom() {
   const btn = document.getElementById("toggleSound");
@@ -697,15 +649,11 @@ function slidePermiteMusica() {
   return (tipo === "foto" || tipo === "foto-homenagem");
 }
 
-/***********************
- * Botão de som
- ***********************/
 document.getElementById("toggleSound").addEventListener("click", () => {
   musicaAtiva = !musicaAtiva;
 
   if (musicaAtiva) {
     if (slidePermiteMusica()) {
-      musicaIniciada = true;
       fadeIn(audio);
     } else {
       fadeOut(audio);
@@ -717,9 +665,6 @@ document.getElementById("toggleSound").addEventListener("click", () => {
   atualizarIconeSom();
 });
 
-/***********************
- * Música + Swiper
- ***********************/
 swiper.on('slideChange', () => {
   pauseMedia();
 
@@ -752,12 +697,11 @@ function fecharLightbox() {
  * Botões multilíngues
  ***********************/
 window.addEventListener("load", function() {
-    const lang = navigator.language.toLowerCase();
-    const fbBtn = document.getElementById("shareFacebookBtn");
-    const copyBtn = document.getElementById("copyLinkBtn");
+  const lang = navigator.language.toLowerCase();
+  const fbBtn = document.getElementById("shareFacebookBtn");
+  const copyBtn = document.getElementById("copyLinkBtn");
 
-    if (!fbBtn || !copyBtn) return;  // garante que os botões existem
-
+  if (!fbBtn || !copyBtn) return;
 
   if (lang.startsWith("fr")) fbBtn.textContent = "Partager sur Facebook";
   else if (lang.startsWith("es")) fbBtn.textContent = "Compartir en Facebook";
@@ -775,15 +719,16 @@ window.addEventListener("load", function() {
       else alert("Ligação copiada!");
     });
   });
-})();
+});
 
+/***********************
+ * Remover Funny (fallback JS)
+ ***********************/
 setInterval(() => {
-    document.querySelectorAll('[data-reaction="funny"]').forEach(el => {
-        el.style.display = "none";
-    });
+  document.querySelectorAll('[data-reaction="funny"]').forEach(el => {
+    el.style.display = "none";
+  });
 }, 500);
-
-
 </script>
 
 <hr>
