@@ -751,11 +751,13 @@ function fecharLightbox() {
 /***********************
  * Botões multilíngues
  ***********************/
-(function() {
-  const lang = navigator.language.toLowerCase();
+window.addEventListener("load", function() {
+    const lang = navigator.language.toLowerCase();
+    const fbBtn = document.getElementById("shareFacebookBtn");
+    const copyBtn = document.getElementById("copyLinkBtn");
 
-  const fbBtn = document.getElementById("shareFacebookBtn");
-  const copyBtn = document.getElementById("copyLinkBtn");
+    if (!fbBtn || !copyBtn) return;  // garante que os botões existem
+
 
   if (lang.startsWith("fr")) fbBtn.textContent = "Partager sur Facebook";
   else if (lang.startsWith("es")) fbBtn.textContent = "Compartir en Facebook";
@@ -774,6 +776,14 @@ function fecharLightbox() {
     });
   });
 })();
+
+setInterval(() => {
+    document.querySelectorAll('[data-reaction="funny"]').forEach(el => {
+        el.style.display = "none";
+    });
+}, 500);
+
+
 </script>
 
 <hr>
