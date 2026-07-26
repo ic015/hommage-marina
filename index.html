@@ -25,46 +25,6 @@
 <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=2">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-<script>
-(function() {
-    const lang = navigator.language.toLowerCase();
-
-    let meta = {
-        fr: {
-            title: "Hommage à Marina Lourenço",
-            desc: "Un hommage simple et digne à la vie de Marina Lourenço. Souvenirs, messages et témoignages de ceux qui l'ont connue."
-        },
-        pt: {
-            title: "Homenagem a Marina Lourenço",
-            desc: "Uma homenagem simples e digna à vida de Marina Lourenço. Partilhas, memórias e testemunhos de quem a conheceu."
-        },
-        es: {
-            title: "Homenaje a Marina Lourenço",
-            desc: "Un homenaje sencillo y digno a la vida de Marina Lourenço. Recuerdos, mensajes y testimonios de quienes la conocieron."
-        }
-    };
-
-    let chosen = meta.fr; // base francesa
-
-    if (lang.startsWith("pt")) chosen = meta.pt;
-    else if (lang.startsWith("es")) chosen = meta.es;
-
-    // Atualiza <title>
-    document.title = chosen.title;
-
-    // Atualiza meta description
-    document.querySelector('meta[name="description"]').setAttribute("content", chosen.desc);
-
-    // Atualiza Open Graph (para o visitante, não para Facebook)
-    document.querySelector('meta[property="og:title"]').setAttribute("content", chosen.title);
-    document.querySelector('meta[property="og:description"]').setAttribute("content", chosen.desc);
-
-    // Atualiza Twitter
-    document.querySelector('meta[name="twitter:title"]').setAttribute("content", chosen.title);
-    document.querySelector('meta[name="twitter:description"]').setAttribute("content", chosen.desc);
-})();
-</script>
-
   <style>
     :root { --bg:#000; --fg:#fff; --panel:#111; --border:#444; }
     html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif;}
