@@ -215,7 +215,8 @@
     background:#444;
     color:white;
 }
-.reaction-funny {
+.reaction-funny,
+[data-reaction="funny"] {
     display:none !important;
 }
 	  
@@ -353,7 +354,7 @@
       <button class="nav-btn" id="prevBottom">←</button>
       <button class="nav-btn" id="nextBottom">→</button>
     </div>
-<a id="shareFacebookBtn" class="action-btn fb-btn" 
+<a id="shareFacebookBtn" class="action-btn fb-btn"
    href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
    target="_blank" rel="noopener">
     Partilhar no Facebook
@@ -686,7 +687,7 @@ function fecharLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
 
-	  (function() {
+(function() {
     const lang = navigator.language.toLowerCase();
 
     const fbBtn = document.getElementById("shareFacebookBtn");
