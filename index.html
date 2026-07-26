@@ -192,8 +192,34 @@
     }
 }
 
+	  .action-btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px 18px;
+    font-size:1em;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    text-decoration:none;
+    min-width:180px; /* garante tamanho semelhante */
+}
 
-  </style>
+.fb-btn {
+    background:#1877f2;
+    color:white;
+}
+
+.copy-btn {
+    background:#444;
+    color:white;
+}
+.reaction-funny {
+    display:none !important;
+}
+	  
+</style>
 </head>
 <body>
   <div class="page">
@@ -327,27 +353,16 @@
       <button class="nav-btn" id="prevBottom">←</button>
       <button class="nav-btn" id="nextBottom">→</button>
     </div>
-<a class="share-facebook"
+<a id="shareFacebookBtn" class="action-btn fb-btn" 
    href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
-   target="_blank"
-   rel="noopener"
-   style="display:inline-flex;align-items:center;gap:8px;
-          padding:10px 16px;background:#1877f2;color:white;
-          border-radius:6px;text-decoration:none;font-size:1.05em;">
-    <span style="font-size:1.3em;">📘</span>
+   target="_blank" rel="noopener">
     Partilhar no Facebook
 </a>
-<button id="copyLinkBtn" style="
-    padding:10px 16px;
-    background:#444;
-    color:white;
-    border:none;
-    border-radius:6px;
-    font-size:1em;
-    cursor:pointer;
-">
-    Copiar link
+
+<button id="copyLinkBtn" class="action-btn copy-btn">
+    Copiar ligação
 </button>
+
 
     <hr>
 
@@ -671,6 +686,32 @@ function fecharLightbox() {
     document.getElementById('lightbox').style.display = 'none';
 }
 
+	  (function() {
+    const lang = navigator.language.toLowerCase();
+
+    const fbBtn = document.getElementById("shareFacebookBtn");
+    const copyBtn = document.getElementById("copyLinkBtn");
+
+    // Facebook button text
+    if (lang.startsWith("fr")) fbBtn.textContent = "Partager sur Facebook";
+    else if (lang.startsWith("es")) fbBtn.textContent = "Compartir en Facebook";
+    else fbBtn.textContent = "Partilhar no Facebook";
+
+    // Copy button text
+    if (lang.startsWith("fr")) copyBtn.textContent = "Copier le lien";
+    else if (lang.startsWith("es")) copyBtn.textContent = "Copiar enlace";
+    else copyBtn.textContent = "Copiar ligação";
+
+    // Copy link action
+    copyBtn.addEventListener("click", function() {
+        const url = "https://ic015.github.io/hommage-marina/";
+        navigator.clipboard.writeText(url).then(() => {
+            if (lang.startsWith("fr")) alert("Lien copié !");
+            else if (lang.startsWith("es")) alert("Enlace copiado!");
+            else alert("Ligação copiada!");
+        });
+    });
+})();
 	  
   </script>
   <hr>
