@@ -207,6 +207,19 @@
     border-radius: 6px;
     pointer-events: none; /* não bloqueia o clique na imagem */
 }
+.zoom-out-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 32px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
 
 /* Só aparece no telemóvel */
 @media (min-width: 768px) {
@@ -391,7 +404,10 @@
 
     <div id="disqus_thread"></div>
   </div>
-	<div id="lightbox"></div>
+	<div id="lightbox">
+	  <div class="zoom-out-icon">✖</div>
+	</div>
+
 	<audio id="musicaMarina" src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3" preload="auto"></audio>
 
   <!-- libs -->
@@ -701,13 +717,20 @@ swiper.on('slideChange', function () {
 
 function abrirLightbox(src) {
     const lb = document.getElementById('lightbox');
-    lb.innerHTML = `<img src="${src}" onclick="fecharLightbox()">`;
     lb.style.display = 'flex';
+    lb.innerHTML = `
+        <img src="${src}" onclick="fecharLightbox()">
+        <div class="zoom-out-icon" onclick="fecharLightbox()">✖</div>
+    `;
 }
 
+
 function fecharLightbox() {
-    document.getElementById('lightbox').style.display = 'none';
+    const lb = document.getElementById('lightbox');
+    lb.style.display = 'none';
+    lb.innerHTML = '';
 }
+
 
 	  
   </script>
