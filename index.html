@@ -151,14 +151,7 @@
 .foto-slide {
     pointer-events: auto;
     touch-action: manipulation;
-
-    width: 100%;
-    max-width: 900px;
-    max-height: 70vh;   /* impede que a imagem fique gigante */
-    object-fit: contain; /* mantém proporção sem cortar */
-    border-radius: 8px;
 }
-
 
 .swiper-slide {
     overflow: visible !important;
@@ -329,24 +322,15 @@
 		</div>
 		<div class="swiper-slide" data-tipo="foto">
 		  <div class="slide-content">
-		    <div class="zoom-wrapper">
-		      <img src="assets/img/marina_meditacao2.jpg"
-		           class="foto-slide"
-		           onclick="abrirLightbox(this.src)">
-		      <div class="zoom-icon">🔍</div>
-		    </div>
+		    <img src="assets/img/marina_meditacao2.jpg"
+		         alt="Marina Lourenço — Meditación"
+		         class="foto-slide">
 		  </div>
 		</div>
       </div>
       <div class="swiper-pagination"></div>
     </div>
 
-
-
-
-
-
-	  
     <div class="bottom-nav">
       <button class="nav-btn" id="prevBottom">←</button>
       <button class="nav-btn" id="nextBottom">→</button>
