@@ -249,494 +249,416 @@
     }
   </style>
 </head>
-
 <body>
-<div class="page">
+  <div class="page">
 
-  <div class="foto-topo">
-    <img src="assets/img/marina_cortes.jpg" class="foto-marina">
-  </div>
-
-  <div class="lang-buttons">
-    <button id="toggleSound" class="sound-btn">🔈</button>
-    <button onclick="showLang('fr')">FR</button>
-    <button onclick="showLang('es')">ES</button>
-    <button onclick="showLang('pt')">PT</button>
-  </div>
-
-  <div id="lang_fr" style="display:none;">
-    <h1>Hommage à une vie</h1>
-    <p>À la mémoire de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
-  </div>
-
-  <div id="lang_es" style="display:none;">
-    <h1>Homenaje a una vida</h1>
-    <p>En memoria de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
-  </div>
-
-  <div id="lang_pt" style="display:block;">
-    <h1>Homenagem a uma vida</h1>
-    <p>À memória de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
-  </div>
-
-  <div class="top-nav">
-    <button class="nav-btn" id="prevTop">←</button>
-    <button class="nav-btn" id="nextTop">→</button>
-  </div>
-
-  <div class="swiper my-swiper">
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide" data-tipo="foto-homenagem">
-        <div class="slide-content">
-
-          <div id="slide1_fr" style="display:none;">
-            <p>
-              <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
-              Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
-              Laissez votre témoignage ci‑dessous, afin que nous puissions ensemble garder vivante la mémoire de Marina.
-            </p>
-          </div>
-
-          <div id="slide1_es" style="display:none;">
-            <p>
-              <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
-              Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para siempre.
-              Deje su testimonio abajo, para que juntos mantengamos viva la memoria de Marina.
-            </p>
-          </div>
-
-          <div id="slide1_pt" style="display:block;">
-            <p>
-              <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
-              O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
-              Deixe o seu testemunho abaixo, para juntos mantermos viva a memória da Marina.
-            </p>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="swiper-slide" data-tipo="youtube">
-        <div class="video slide-content">
-          <p style="opacity:.85; margin-bottom:10px;">Hommage à Marina Cortes Lourenço.</p>
-          <div id="youtube-player-wrap">
-            <iframe id="youtube_iframe_1"
-              src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1&cb=20260723&origin="
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <p style="opacity:.85; margin-bottom:10px;">
-            Émission Falseta n°9 — Programme radio dédié au flamenco.
-            Cet épisode est aussi l’occasion de rendre hommage à Marina Lourenço, fondatrice de la « Peña Flamenca Movida Movida », l’actuelle « Peña Copas y Compás », à Bordeaux.
-          </p>
-
-          <iframe id="soundcloud_iframe"
-            width="100%" height="166"
-            scrolling="no" frameborder="no"
-            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9&color=%23ffffff&inverse=false&auto_play=false&show_user=true&cb=20260723">
-          </iframe>
-        </div>
-      </div>
-
-      <div class="swiper-slide" data-tipo="foto">
-        <div class="slide-content">
-          <div class="zoom-wrapper">
-            <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
-                 alt="Marina Lourenço — Entretien Flamenco"
-                 class="foto-slide"
-                 onclick="abrirLightbox(this.src)">
-            <div class="zoom-icon">🔍</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide" data-tipo="youtube">
-        <div class="video slide-content">
-          <p style="opacity:.85; margin-bottom:10px;">Qi Yoga Pilates</p>
-          <div id="youtube-player-wrap">
-            <iframe id="youtube_iframe_2"
-              src="https://www.youtube.com/embed/6z-jzUNWT4o?enablejsapi=1&cb=20260723&origin="
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-            </iframe>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide" data-tipo="foto">
-        <div class="slide-content">
-          <img src="assets/img/marina_e_canito.jpg"
-               alt="Marina Lourenço con su perrito querido"
-               class="foto-slide">
-        </div>
-      </div>
-
-      <div class="swiper-slide" data-tipo="foto">
-        <div class="slide-content">
-          <img src="assets/img/marina_meditacao2.jpg"
-               alt="Marina Lourenço — Meditación"
-               class="foto-slide">
-        </div>
-      </div>
-
+    <div class="foto-topo">
+      <img src="assets/img/marina_cortes.jpg" class="foto-marina">
     </div>
 
-    <div class="swiper-pagination"></div>
+    <div class="lang-buttons">
+      <button id="toggleSound" class="sound-btn">🔈</button>
+      <button onclick="showLang('fr')">FR</button>
+      <button onclick="showLang('es')">ES</button>
+      <button onclick="showLang('pt')">PT</button>
+    </div>
+
+    <div id="lang_fr" style="display:none;">
+      <h1>Hommage à une vie</h1>
+      <p>À la mémoire de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
+    </div>
+
+    <div id="lang_es" style="display:none;">
+      <h1>Homenaje a una vida</h1>
+      <p>En memoria de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
+    </div>
+
+    <div id="lang_pt" style="display:block;">
+      <h1>Homenagem a uma vida</h1>
+      <p>À memória de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
+    </div>
+
+    <div class="top-nav">
+      <button class="nav-btn" id="prevTop">←</button>
+      <button class="nav-btn" id="nextTop">→</button>
+    </div>
+
+    <div class="swiper my-swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide" data-tipo="foto-homenagem">
+          <div class="slide-content">
+
+            <div id="slide1_fr" style="display:none;">
+              <p>
+                <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
+                Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
+                Laissez votre témoignage ci‑dessous, afin que nous puissions ensemble garder vivante la mémoire de Marina.
+              </p>
+            </div>
+
+            <div id="slide1_es" style="display:none;">
+              <p>
+                <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
+                Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para sempre.
+                Deje su testimonio abajo, para que juntos mantengamos viva la memoria de Marina.
+              </p>
+            </div>
+
+            <div id="slide1_pt" style="display:block;">
+              <p>
+                <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
+                O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
+                Deixe o seu testemunho abaixo, para juntos mantermos viva a memória da Marina.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="swiper-slide" data-tipo="youtube">
+          <div class="video slide-content">
+            <p style="opacity:.85; margin-bottom:10px;">Hommage à Marina Cortes Lourenço.</p>
+            <div id="youtube-player-wrap">
+              <iframe id="youtube_iframe_1"
+                src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1&cb=20260723&origin="
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="slide-content">
+            <p style="opacity:.85; margin-bottom:10px;">
+              Émission Falseta n°9 — Programme radio dédié au flamenco.
+              Cet épisode est aussi l’occasion de rendre hommage à Marina Lourenço, fondatrice de la « Peña Flamenca Movida Movida », l’actuelle « Peña Copas y Compás », à Bordeaux.
+            </p>
+
+            <iframe id="soundcloud_iframe"
+              width="100%" height="166"
+              scrolling="no" frameborder="no"
+              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9&color=%23ffffff&inverse=false&auto_play=false&show_user=true&cb=20260723">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="swiper-slide" data-tipo="foto">
+          <div class="slide-content">
+            <div class="zoom-wrapper">
+              <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
+                   alt="Marina Lourenço — Entretien Flamenco"
+                   class="foto-slide"
+                   onclick="abrirLightbox(this.src)">
+              <div class="zoom-icon">🔍</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" data-tipo="youtube">
+          <div class="video slide-content">
+            <p style="opacity:.85; margin-bottom:10px;">Qi Yoga Pilates</p>
+            <div id="youtube-player-wrap">
+              <iframe id="youtube_iframe_2"
+                src="https://www.youtube.com/embed/6z-jzUNWT4o?enablejsapi=1&cb=20260723&origin="
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-slide" data-tipo="foto">
+          <div class="slide-content">
+            <img src="assets/img/marina_e_canito.jpg"
+                 alt="Marina Lourenço con su perrito querido"
+                 class="foto-slide">
+          </div>
+        </div>
+
+        <div class="swiper-slide" data-tipo="foto">
+          <div class="slide-content">
+            <img src="assets/img/marina_meditacao2.jpg"
+                 alt="Marina Lourenço — Meditación"
+                 class="foto-slide">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="swiper-pagination"></div>
+    </div>
+
+    <div class="bottom-nav">
+      <button class="nav-btn" id="prevBottom">←</button>
+      <button class="nav-btn" id="nextBottom">→</button>
+    </div>
+
+    <a id="shareFacebookBtn" class="action-btn fb-btn"
+       href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
+       target="_blank" rel="noopener">
+      Partilhar no Facebook
+    </a>
+
+    <button id="copyLinkBtn" class="action-btn copy-btn">
+      Copiar ligação
+    </button>
+
+    <hr>
+
+    <div id="disqus_thread"></div>
   </div>
 
-  <div class="bottom-nav">
-    <button class="nav-btn" id="prevBottom">←</button>
-    <button class="nav-btn" id="nextBottom">→</button>
-  </div>
+  <div id="lightbox"></div>
+  <audio id="musicaMarina" src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3" preload="auto"></audio>
 
-  <a id="shareFacebookBtn" class="action-btn fb-btn"
-     href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
-     target="_blank" rel="noopener">
-    Partilhar no Facebook
-  </a>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
 
-  <button id="copyLinkBtn" class="action-btn copy-btn">
-    Copiar ligação
-  </button>
+  <script>
+    const YT_VIDEO_ID = 'OEvdBX5_Fy0';
+    const soundcloudStartSec = 720;
 
-  <hr>
+    document.getElementById("youtube_iframe_1").src =
+      `https://www.youtube.com/embed/${YT_VIDEO_ID}?enablejsapi=1&cb=20260723&origin=`;
 
-  <div id="disqus_thread"></div>
+    function detectPreferredLanguage() {
+      const raw = navigator.languages || [navigator.language || 'pt'];
+      const scores = { pt: 0, fr: 0, es: 0 };
+      raw.forEach(l => {
+        const lang = l.toLowerCase();
+        if (lang.startsWith('pt')) scores.pt += 1;
+        if (lang.startsWith('fr')) scores.fr += 1;
+        if (lang.startsWith('es')) scores.es += 1;
+      });
+      let best = 'pt';
+      if (scores.fr > scores.pt && scores.fr > scores.es) best = 'fr';
+      if (scores.es > scores.pt && scores.es > scores.fr) best = 'es';
+      return best;
+    }
 
-</div>
-
-<div id="lightbox"></div>
-
-<audio id="musicaMarina"
-       src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3"
-       preload="auto"></audio>
-
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-<script src="https://www.youtube.com/iframe_api"></script>
-<script src="https://w.soundcloud.com/player/api.js"></script>
-
-<script>
-/***********************
- * Configurações
- ***********************/
-const YT_VIDEO_ID = 'OEvdBX5_Fy0';
-const soundcloudStartSec = 720;
-
-document.getElementById("youtube_iframe_1").src =
-  `https://www.youtube.com/embed/${YT_VIDEO_ID}?enablejsapi=1&cb=20260723&origin=`;
-
-/***********************
- * Detecção de língua
- ***********************/
-function detectPreferredLanguage() {
-  const raw = navigator.languages || [navigator.language || 'pt'];
-  const scores = { pt: 0, fr: 0, es: 0 };
-
-  raw.forEach(l => {
-    const lang = l.toLowerCase();
-    if (lang.startsWith('pt')) scores.pt++;
-    if (lang.startsWith('fr')) scores.fr++;
-    if (lang.startsWith('es')) scores.es++;
-  });
-
-  let best = 'pt';
-  if (scores.fr > scores.pt && scores.fr > scores.es) best = 'fr';
-  if (scores.es > scores.pt && scores.es > scores.fr) best = 'es';
-  return best;
-}
-
-/***********************
- * Disqus
- ***********************/
-var disqus_config = function () {
-  this.page.url = window.location.href;
-  this.page.identifier = "hommage-marina-page";
-  this.language = "pt";
-};
-
-(function() {
-  var d = document, s = d.createElement('script');
-  s.src = 'https://hommage-marina.disqus.com/embed.js';
-  s.setAttribute('data-timestamp', +new Date());
-  (d.head || d.body).appendChild(s);
-})();
-
-function loadDisqus(lang) {
-  if (lang === "es") lang = "en";
-  if (window.DISQUS) {
-    window.DISQUS.reset({
-      reload: true,
-      config: function () {
-        this.page.url = window.location.href;
-        this.page.identifier = "hommage-marina-page";
-        this.language = lang;
+    var disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = "hommage-marina-page";
+      this.language = "pt";
+    };
+    (function() {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://hommage-marina.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+    function loadDisqus(lang) {
+      if (lang === "es") lang = "en";
+      if (window.DISQUS) {
+        window.DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.url = window.location.href;
+            this.page.identifier = "hommage-marina-page";
+            this.language = lang;
+          }
+        });
       }
+    }
+
+    const swiper = new Swiper('.my-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      autoHeight: true,
+      pagination: { el: '.swiper-pagination', clickable: true }
     });
-  }
-}
 
-/***********************
- * Swiper
- ***********************/
-const swiper = new Swiper('.my-swiper', {
-  slidesPerView: 1,
-  spaceBetween: 0,
-  autoHeight: true,
-  pagination: { el: '.swiper-pagination', clickable: true }
-});
+    document.getElementById('prevTop').onclick = () => swiper.slidePrev();
+    document.getElementById('nextTop').onclick = () => swiper.slideNext();
+    document.getElementById('prevBottom').onclick = () => swiper.slidePrev();
+    document.getElementById('nextBottom').onclick = () => swiper.slideNext();
 
-document.getElementById('prevTop').onclick = () => swiper.slidePrev();
-document.getElementById('nextTop').onclick = () => swiper.slideNext();
-document.getElementById('prevBottom').onclick = () => swiper.slidePrev();
-document.getElementById('nextBottom').onclick = () => swiper.slideNext();
+    let scWidget = null;
+    let scIframe = document.getElementById('soundcloud_iframe');
 
-/***********************
- * Players: YouTube + SoundCloud
- ***********************/
-let ytPlayer = null;
-let scWidget = null;
-let scIframe = document.getElementById('soundcloud_iframe');
-
-function onYouTubeIframeAPIReady() {
-  const iframe = document.getElementById('youtube_iframe');
-  if (!iframe) return;
-  iframe.src = 'https://www.youtube.com/embed/' + YT_VIDEO_ID +
-               '?enablejsapi=1&origin=' + location.origin;
-
-  ytPlayer = new YT.Player('youtube_iframe', {
-    events: {
-      'onReady': () => console.log('YouTube ready'),
-      'onStateChange': () => {}
-    }
-  });
-}
-
-function initSoundCloudWidget() {
-  if (!scIframe) return;
-
-  scWidget = SC.Widget(scIframe);
-  scWidget.bind(SC.Widget.Events.READY, function() {
-    console.log('SoundCloud ready');
-
-    if (typeof soundcloudStartSec === 'number' && soundcloudStartSec > 0) {
-      scWidget.seekTo(soundcloudStartSec * 1000);
-    }
-  });
-}
-
-if (window.SC && SC.Widget) {
-  initSoundCloudWidget();
-} else {
-  window.addEventListener('load', () => {
-    setTimeout(initSoundCloudWidget, 300);
-  });
-}
-
-/***********************
- * Pausar media
- ***********************/
-function pauseMedia() {
-  document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
-    try {
-      iframe.contentWindow.postMessage(
-        '{"event":"command","func":"pauseVideo","args":""}',
-        '*'
-      );
-    } catch(e) {
-      console.warn('YT pause error', e);
-    }
-  });
-
-  try {
-    if (scWidget && typeof scWidget.pause === 'function') {
-      scWidget.pause();
-    } else {
-      document.querySelectorAll('iframe[src*="soundcloud"]').forEach(iframe => {
-        iframe.contentWindow.postMessage({ method: 'pause' }, '*');
+    function initSoundCloudWidget() {
+      if (!scIframe) return;
+      scWidget = SC.Widget(scIframe);
+      scWidget.bind(SC.Widget.Events.READY, function() {
+        if (typeof soundcloudStartSec === 'number' && soundcloudStartSec > 0) {
+          scWidget.seekTo(soundcloudStartSec * 1000);
+        }
       });
     }
-  } catch (e) {
-    console.warn('SC pause error', e);
-  }
-}
 
-swiper.on('slideChange', () => pauseMedia());
-
-/***********************
- * Multilíngua (UI) + Disqus
- ***********************/
-function showLang(lang){
-  document.getElementById('lang_fr').style.display = (lang==='fr') ? 'block' : 'none';
-  document.getElementById('lang_es').style.display = (lang==='es') ? 'block' : 'none';
-  document.getElementById('lang_pt').style.display = (lang==='pt') ? 'block' : 'none';
-
-  document.getElementById('slide1_fr').style.display = (lang==='fr') ? 'block' : 'none';
-  document.getElementById('slide1_es').style.display = (lang==='es') ? 'block' : 'none';
-  document.getElementById('slide1_pt').style.display = (lang==='pt') ? 'block' : 'none';
-
-  loadDisqus(lang);
-}
-
-const initialLang = detectPreferredLanguage();
-showLang(initialLang);
-
-/***********************
- * Música
- ***********************/
-const audio = document.getElementById("musicaMarina");
-audio.volume = 0.2;
-audio.loop = true;
-
-let fadeInInterval = null;
-let fadeOutInterval = null;
-
-function fadeIn(audio) {
-  if (audio.paused) audio.play();
-
-  clearInterval(fadeOutInterval);
-  fadeOutInterval = null;
-
-  let v = audio.volume;
-
-  fadeInInterval = setInterval(() => {
-    v += 0.03;
-    if (v >= 1) {
-      v = 1;
-      clearInterval(fadeInInterval);
-      fadeInInterval = null;
+    if (window.SC && SC.Widget) {
+      initSoundCloudWidget();
+    } else {
+      window.addEventListener('load', function() {
+        setTimeout(initSoundCloudWidget, 300);
+      });
     }
-    audio.volume = v;
-  }, 60);
-}
 
-function fadeOut(audio) {
-  clearInterval(fadeInInterval);
-  fadeInInterval = null;
+    function pauseMedia() {
+      document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
+        try {
+          iframe.contentWindow.postMessage(
+            '{"event":"command","func":"pauseVideo","args":""}',
+            '*'
+          );
+        } catch(e) {
+          console.warn('YT pause error', e);
+        }
+      });
 
-  let v = audio.volume;
+      try {
+        if (scWidget && typeof scWidget.pause === 'function') {
+          scWidget.pause();
+        } else {
+          document.querySelectorAll('iframe[src*="soundcloud"]').forEach(iframe => {
+            iframe.contentWindow.postMessage({ method: 'pause' }, '*');
+          });
+        }
+      } catch (e) { console.warn('SC pause error', e); }
+    }
 
-  fadeOutInterval = setInterval(() => {
-    v -= 0.03;
-    if (v <= 0) {
-      v = 0;
-      audio.pause();
+    swiper.on('slideChange', function () {
+      pauseMedia();
+    });
+
+    function showLang(lang){
+      document.getElementById('lang_fr').style.display = (lang==='fr') ? 'block' : 'none';
+      document.getElementById('lang_es').style.display = (lang==='es') ? 'block' : 'none';
+      document.getElementById('lang_pt').style.display = (lang==='pt') ? 'block' : 'none';
+
+      document.getElementById('slide1_fr').style.display = (lang==='fr') ? 'block' : 'none';
+      document.getElementById('slide1_es').style.display = (lang==='es') ? 'block' : 'none';
+      document.getElementById('slide1_pt').style.display = (lang==='pt') ? 'block' : 'none';
+
+      loadDisqus(lang);
+    }
+    const initialLang = detectPreferredLanguage();
+    showLang(initialLang);
+
+    const audio = document.getElementById("musicaMarina");
+    audio.volume = 0.2;
+    audio.loop = true;
+
+    let fadeInInterval = null;
+    let fadeOutInterval = null;
+
+    function fadeIn(audio) {
+      if (audio.paused) audio.play();
       clearInterval(fadeOutInterval);
       fadeOutInterval = null;
+      let v = audio.volume;
+      fadeInInterval = setInterval(() => {
+        v += 0.03;
+        if (v >= 1) {
+          v = 1;
+          clearInterval(fadeInInterval);
+          fadeInInterval = null;
+        }
+        audio.volume = v;
+      }, 60);
     }
-    audio.volume = v;
-  }, 60);
-}
 
-let musicaAtiva = false;
-
-function atualizarIconeSom() {
-  const btn = document.getElementById("toggleSound");
-  btn.textContent = musicaAtiva ? "🔊" : "🔇";
-}
-
-function slidePermiteMusica() {
-  const activeSlide = swiper.slides[swiper.activeIndex];
-  const tipo = activeSlide.dataset.tipo || "";
-  return (tipo === "foto" || tipo === "foto-homenagem");
-}
-
-document.getElementById("toggleSound").addEventListener("click", () => {
-  musicaAtiva = !musicaAtiva;
-
-  if (musicaAtiva) {
-    if (slidePermiteMusica()) {
-      fadeIn(audio);
-    } else {
-      fadeOut(audio);
+    function fadeOut(audio) {
+      clearInterval(fadeInInterval);
+      fadeInInterval = null;
+      let v = audio.volume;
+      fadeOutInterval = setInterval(() => {
+        v -= 0.03;
+        if (v <= 0) {
+          v = 0;
+          audio.pause();
+          clearInterval(fadeOutInterval);
+          fadeOutInterval = null;
+        }
+        audio.volume = v;
+      }, 60);
     }
-  } else {
-    fadeOut(audio);
-  }
 
-  atualizarIconeSom();
-});
+    let musicaAtiva = false;
 
-swiper.on('slideChange', () => {
-  pauseMedia();
+    function atualizarIconeSom() {
+      const btn = document.getElementById("toggleSound");
+      btn.textContent = musicaAtiva ? "🔊" : "🔇";
+    }
 
-  if (!musicaAtiva) {
-    fadeOut(audio);
-    return;
-  }
+    function slidePermiteMusica() {
+      const activeSlide = swiper.slides[swiper.activeIndex];
+      const tipo = activeSlide.dataset.tipo || "";
+      return (tipo === "foto" || tipo === "foto-homenagem");
+    }
 
-  if (slidePermiteMusica()) {
-    fadeIn(audio);
-  } else {
-    fadeOut(audio);
-  }
-});
-
-/***********************
- * Lightbox
- ***********************/
-function abrirLightbox(src) {
-  const lb = document.getElementById('lightbox');
-  lb.innerHTML = `<img src="${src}" onclick="fecharLightbox()">`;
-  lb.style.display = 'flex';
-}
-
-function fecharLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
-}
-
-/***********************
- * Botões multilíngues
- ***********************/
-window.addEventListener("load", function() {
-  const lang = navigator.language.toLowerCase();
-  const fbBtn = document.getElementById("shareFacebookBtn");
-  const copyBtn = document.getElementById("copyLinkBtn");
-
-  if (!fbBtn || !copyBtn) return;
-
-  if (lang.startsWith("fr")) fbBtn.textContent = "Partager sur Facebook";
-  else if (lang.startsWith("es")) fbBtn.textContent = "Compartir en Facebook";
-  else fbBtn.textContent = "Partilhar no Facebook";
-
-  if (lang.startsWith("fr")) copyBtn.textContent = "Copier le lien";
-  else if (lang.startsWith("es")) copyBtn.textContent = "Copiar enlace";
-  else copyBtn.textContent = "Copiar ligação";
-
-  copyBtn.addEventListener("click", () => {
-    const url = "https://ic015.github.io/hommage-marina/";
-    navigator.clipboard.writeText(url).then(() => {
-      if (lang.startsWith("fr")) alert("Lien copié !");
-      else if (lang.startsWith("es")) alert("Enlace copiado!");
-      else alert("Ligação copiada!");
+    document.getElementById("toggleSound").addEventListener("click", () => {
+      musicaAtiva = !musicaAtiva;
+      if (musicaAtiva) {
+        if (slidePermiteMusica()) {
+          fadeIn(audio);
+        } else {
+          fadeOut(audio);
+        }
+      } else {
+        fadeOut(audio);
+      }
+      atualizarIconeSom();
     });
-  });
-});
 
-/***********************
- * Remover Funny (fallback JS)
- ***********************/
-setInterval(() => {
-  document.querySelectorAll('[data-reaction="funny"]').forEach(el => {
-    el.style.display = "none";
-  });
-}, 500);
-</script>
+    swiper.on('slideChange', function () {
+      pauseMedia();
+      if (!musicaAtiva) {
+        fadeOut(audio);
+        return;
+      }
+      if (slidePermiteMusica()) {
+        fadeIn(audio);
+      } else {
+        fadeOut(audio);
+      }
+    });
 
-<hr>
+    function abrirLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      lb.innerHTML = `<img src="${src}" onclick="fecharLightbox()">`;
+      lb.style.display = 'flex';
+    }
 
-<p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
-  Música: “Poetas Andaluces” — Aguaviva.
-</p>
+    function fecharLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
 
-<br>
+    window.addEventListener("load", function() {
+      const lang = navigator.language.toLowerCase();
+      const fbBtn = document.getElementById("shareFacebookBtn");
+      const copyBtn = document.getElementById("copyLinkBtn");
+
+      if (!fbBtn || !copyBtn) return;
+
+      if (lang.startsWith("fr")) fbBtn.textContent = "Partager sur Facebook";
+      else if (lang.startsWith("es")) fbBtn.textContent = "Compartir en Facebook";
+      else fbBtn.textContent = "Partilhar no Facebook";
+
+      if (lang.startsWith("fr")) copyBtn.textContent = "Copier le lien";
+      else if (lang.startsWith("es")) copyBtn.textContent = "Copiar enlace";
+      else copyBtn.textContent = "Copiar ligação";
+
+      copyBtn.addEventListener("click", () => {
+        const url = "https://ic015.github.io/hommage-marina/";
+        navigator.clipboard.writeText(url).then(() => {
+          if (lang.startsWith("fr")) alert("Lien copié !");
+          else if (lang.startsWith("es")) alert("Enlace copiado!");
+          else alert("Ligação copiada!");
+        });
+      });
+    });
+  </script>
+
+  <hr>
+  <p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
+    Música: “Poetas Andaluces” — Aguaviva.
+  </p>
+  <br>
 </body>
 </html>
