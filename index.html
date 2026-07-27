@@ -706,14 +706,19 @@ swiper.on('slideChange', function () {
         fadeOut(audio);
     }
 
-	// ⭐ NOVO: centrar verticalmente o conteúdo do slide
+	// ⭐ NOVO: centrar verticalmente o conteúdo do slide (método robusto)
 	const content = swiper.slides[swiper.activeIndex].querySelector('.slide-content');
 	if (content) {
-	    content.scrollIntoView({
-	        behavior: 'smooth',
-	        block: 'center'
+	    const rect = content.getBoundingClientRect();
+	    const absoluteTop = rect.top + window.scrollY;
+	    const centerY = absoluteTop - (window.innerHeight / 2) + (rect.height / 2);
+	
+	    window.scrollTo({
+	        top: centerY,
+	        behavior: 'smooth'
 	    });
-}
+	}
+
 
 
 });
