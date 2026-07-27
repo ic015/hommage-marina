@@ -706,11 +706,15 @@ swiper.on('slideChange', function () {
         fadeOut(audio);
     }
 
-    // ⭐ NOVO: centrar o Swiper na janela
-    document.querySelector('.swiper').scrollIntoView({
-        behavior: 'smooth',
-        block: 'center'
-    });
+	// ⭐ NOVO: centrar verticalmente o conteúdo do slide
+	const content = swiper.slides[swiper.activeIndex].querySelector('.slide-content');
+	if (content) {
+	    content.scrollIntoView({
+	        behavior: 'smooth',
+	        block: 'center'
+	    });
+}
+
 
 });
 
