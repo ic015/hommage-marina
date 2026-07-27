@@ -1,664 +1,244 @@
 <!DOCTYPE html>
 <html lang="pt">
-<!-- 24 JULHO 2026 -->
 <head>
   <meta charset="utf-8" />
-
-  <!-- SEO básico -->
   <title>Hommage à Marina Lourenço</title>
-  <meta name="description" content="Un hommage simple et digne à la vie de Marina Lourenço. Souvenirs, messages et témoignages de ceux qui l'ont connue.">
-
-  <link rel="canonical" href="https://ic015.github.io/hommage-marina/">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Hommage à Marina Lourenço">
-  <meta property="og:description" content="Un hommage à la sensibilité, à la présence et à la vie de Marina Lourenço. Partagez votre témoignage.">
-  <meta property="og:image" content="https://ic015.github.io/hommage-marina/assets/img/marina_cortes.jpg">
-  <meta property="og:url" content="https://ic015.github.io/hommage-marina/">
-  <meta property="og:type" content="article">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Hommage à Marina Lourenço">
-  <meta name="twitter:description" content="Un hommage à la sensibilité, à la présence et à la vie de Marina Lourenço. Partagez votre témoignage.">
-  <meta name="twitter:image" content="https://ic015.github.io/hommage-marina/assets/img/marina_cortes.jpg">
-
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico?v=2">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
 
   <style>
     :root { --bg:#000; --fg:#fff; --panel:#111; --border:#444; }
+    body{ margin:0; background:var(--bg); color:var(--fg); font-family:Arial; }
+    .page{ max-width:900px; margin:40px auto; padding:0 20px; }
 
-    html,body{
-      height:100%;
-      margin:0;
-      background:var(--bg);
-      color:var(--fg);
-      font-family:Arial,Helvetica,sans-serif;
-    }
+    h1{ font-weight:300; font-size:2.2em; margin-bottom:8px; }
+    p{ opacity:.95; line-height:1.5; }
 
-    .page{
-      max-width:900px;
-      margin:40px auto;
-      padding:0 20px;
-      line-height:1.6;
-    }
-
-    h1{
-      font-weight:300;
-      font-size:2.2em;
-      margin:0 0 8px;
-    }
-
-    p{
-      margin:0 0 12px;
-      font-size:1.05em;
-      opacity:.95;
-    }
-
-    .lang-buttons{
-      text-align:right;
-      margin-bottom:14px;
-    }
-
+    .lang-buttons{ text-align:right; margin-bottom:14px; }
     .lang-buttons button{
-      margin-left:6px;
-      padding:6px 12px;
-      background:var(--panel);
-      color:var(--fg);
-      border:1px solid var(--border);
-      cursor:pointer;
-    }
-
-    .swiper { width:100%; }
-    .swiper-slide {
-      box-sizing:border-box;
-      padding:18px 6px;
-      min-height:120px;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      overflow:visible !important;
-    }
-
-    .slide-content { width:100%; }
-
-    .video iframe {
-      width:100%;
-      height:380px;
-    }
-
-    @media (max-width:600px){
-      .video iframe { height:240px; }
-    }
-
-    .video.slide-content p { margin-bottom:20px; }
-
-    .top-nav, .bottom-nav {
-      display:flex;
-      justify-content:flex-end;
-      gap:8px;
-    }
-
-    .top-nav { margin-bottom:8px; }
-
-    .nav-btn{
-      background:var(--panel);
-      color:var(--fg);
-      border:1px solid var(--border);
-      padding:6px 12px;
-      cursor:pointer;
-      border-radius:6px;
-    }
-
-    .bottom-nav{
-      justify-content:center;
-      margin-top:12px;
-      margin-bottom:18px;
-    }
-
-    .bottom-nav .nav-btn{
-      padding:10px 18px;
-      font-size:1.05em;
-    }
-
-    hr{
-      border:none;
-      border-top:1px solid var(--border);
-      margin:28px 0;
-    }
-
-    .foto-topo img{
-      width:100%;
-      max-width:320px;
-      display:block;
-      margin:0 auto 20px auto;
-      border-radius:6px;
+      margin-left:6px; padding:6px 12px;
+      background:var(--panel); color:var(--fg);
+      border:1px solid var(--border); cursor:pointer;
     }
 
     .sound-btn{
-      margin-left:10px;
-      padding:10px 16px;
-      font-size:1.4em;
-      background:var(--panel);
-      color:var(--fg);
-      border:2px solid var(--border);
+      margin-left:10px; padding:10px 16px;
+      font-size:1.4em; background:var(--panel);
+      border:2px solid var(--border); border-radius:8px;
       cursor:pointer;
-      border-radius:8px;
-      transition:background .3s, transform .2s;
     }
 
-    .sound-btn:hover{
-      background:var(--fg);
-      color:var(--panel);
-      transform:scale(1.08);
+    .swiper-slide{
+      padding:18px 6px; display:flex;
+      justify-content:center; align-items:center;
     }
 
-    .foto-slide{
-      width:100%;
-      max-width:900px;
-      display:block;
-      margin:0 auto;
-      border-radius:8px;
-      pointer-events:auto;
-      touch-action:manipulation;
-    }
-
-    .slide-content p{
-      max-width:700px;
-      margin:0 auto;
-      line-height:1.5;
-    }
-
-    .swiper-pagination{
-      bottom:15px !important;
-    }
-
-    .swiper{
-      padding-bottom:30px;
-    }
-
-    .video{
-      touch-action:pan-y;
-    }
-
-    #lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.9);
-      display:none;
-      justify-content:center;
-      align-items:center;
-      z-index:9999;
-    }
-
-    #lightbox img{
-      max-width:95%;
-      max-height:95%;
-    }
-
-    .zoom-wrapper{
-      position:relative;
-      display:inline-block;
-    }
-
-    .zoom-icon{
-      position:absolute;
-      bottom:8px;
-      right:8px;
-      font-size:24px;
-      background:rgba(0,0,0,0.5);
-      color:white;
-      padding:4px 6px;
-      border-radius:6px;
-      pointer-events:none;
-    }
-
-    @media (min-width:768px){
-      .zoom-icon{ display:none; }
-    }
+    .foto-slide{ width:100%; max-width:900px; border-radius:8px; }
 
     .action-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:10px 18px;
-      font-size:1em;
-      border:none;
-      border-radius:6px;
-      cursor:pointer;
-      text-decoration:none;
-      min-width:180px;
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 18px; border-radius:6px;
+      cursor:pointer; text-decoration:none;
+      font-size:1.05em;
     }
+    .fb-btn{ background:#1877f2; color:white; }
+    .copy-btn{ background:#444; color:white; }
 
-    .fb-btn{
-      background:#1877f2;
-      color:white;
+    #lightbox{
+      position:fixed; inset:0; background:rgba(0,0,0,0.9);
+      display:none; justify-content:center; align-items:center;
     }
+    #lightbox img{ max-width:95%; max-height:95%; }
 
-    .copy-btn{
-      background:#444;
-      color:white;
-    }
-
-    .reaction-funny,
-    [data-reaction="funny"]{
-      display:none !important;
-    }
+    /* esconder Funny */
+    [data-reaction="funny"]{ display:none !important; }
   </style>
 </head>
+
 <body>
-  <div class="page">
+<div class="page">
 
-    <div class="foto-topo">
-      <img src="assets/img/marina_cortes.jpg" class="foto-marina">
-    </div>
-
-    <div class="lang-buttons">
-      <button id="toggleSound" class="sound-btn">🔈</button>
-      <button onclick="showLang('fr')">FR</button>
-      <button onclick="showLang('es')">ES</button>
-      <button onclick="showLang('pt')">PT</button>
-    </div>
-
-    <div id="lang_fr" style="display:none;">
-      <h1>Hommage à une vie</h1>
-      <p>À la mémoire de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
-    </div>
-
-    <div id="lang_es" style="display:none;">
-      <h1>Homenaje a una vida</h1>
-      <p>En memoria de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
-    </div>
-
-    <div id="lang_pt" style="display:block;">
-      <h1>Homenagem a uma vida</h1>
-      <p>À memória de <strong><big>Marina Lourenço Cortes</big></strong>.</p>
-    </div>
-
-    <div class="top-nav">
-      <button class="nav-btn" id="prevTop">←</button>
-      <button class="nav-btn" id="nextTop">→</button>
-    </div>
-
-    <div class="swiper my-swiper">
-      <div class="swiper-wrapper">
-
-        <div class="swiper-slide" data-tipo="foto-homenagem">
-          <div class="slide-content">
-
-            <div id="slide1_fr" style="display:none;">
-              <p>
-                <strong>Marina Lourenço</strong> est partie trop tôt, laissant un grand vide chez tous ceux qui l’ont connue, ont partagé des moments avec elle, ou ont simplement été touchés par sa présence.
-                Son sourire, sa tendresse, sa sensibilité et son art nous ont marqués pour toujours.
-                Laissez votre témoignage ci‑dessous, afin que nous puissions ensemble garder vivante la mémoire de Marina.
-              </p>
-            </div>
-
-            <div id="slide1_es" style="display:none;">
-              <p>
-                <strong>Marina Lourenço</strong> se fue demasiado pronto y dejó un gran vacío en todos los que la conocieron, compartieron momentos con ella, o simplemente fueron tocados por su presencia.
-                Su sonrisa, su ternura, su sensibilidad y su arte nos marcaron para sempre.
-                Deje su testimonio abajo, para que juntos mantengamos viva la memoria de Marina.
-              </p>
-            </div>
-
-            <div id="slide1_pt" style="display:block;">
-              <p>
-                <strong>Marina Lourenço</strong> partiu demasiado cedo e deixou um grande vazio em todos os que a conheceram, com ela privaram, ou simplesmente foram tocados pela sua presença.
-                O seu sorriso, a sua ternura, a sua sensibilidade e a sua arte marcaram-nos para sempre.
-                Deixe o seu testemunho abaixo, para juntos mantermos viva a memória da Marina.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        <div class="swiper-slide" data-tipo="youtube">
-          <div class="video slide-content">
-            <p style="opacity:.85; margin-bottom:10px;">Hommage à Marina Cortes Lourenço.</p>
-            <div id="youtube-player-wrap">
-              <iframe id="youtube_iframe_1"
-                src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1&cb=20260723&origin="
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide">
-          <div class="slide-content">
-            <p style="opacity:.85; margin-bottom:10px;">
-              Émission Falseta n°9 — Programme radio dédié au flamenco.
-              Cet épisode est aussi l’occasion de rendre hommage à Marina Lourenço, fondatrice de la « Peña Flamenca Movida Movida », l’actuelle « Peña Copas y Compás », à Bordeaux.
-            </p>
-
-            <iframe id="soundcloud_iframe"
-              width="100%" height="166"
-              scrolling="no" frameborder="no"
-              src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9&color=%23ffffff&inverse=false&auto_play=false&show_user=true&cb=20260723">
-            </iframe>
-          </div>
-        </div>
-
-        <div class="swiper-slide" data-tipo="foto">
-          <div class="slide-content">
-            <div class="zoom-wrapper">
-              <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
-                   alt="Marina Lourenço — Entretien Flamenco"
-                   class="foto-slide"
-                   onclick="abrirLightbox(this.src)">
-              <div class="zoom-icon">🔍</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide" data-tipo="youtube">
-          <div class="video slide-content">
-            <p style="opacity:.85; margin-bottom:10px;">Qi Yoga Pilates</p>
-            <div id="youtube-player-wrap">
-              <iframe id="youtube_iframe_2"
-                src="https://www.youtube.com/embed/6z-jzUNWT4o?enablejsapi=1&cb=20260723&origin="
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-        <div class="swiper-slide" data-tipo="foto">
-          <div class="slide-content">
-            <img src="assets/img/marina_e_canito.jpg"
-                 alt="Marina Lourenço con su perrito querido"
-                 class="foto-slide">
-          </div>
-        </div>
-
-        <div class="swiper-slide" data-tipo="foto">
-          <div class="slide-content">
-            <img src="assets/img/marina_meditacao2.jpg"
-                 alt="Marina Lourenço — Meditación"
-                 class="foto-slide">
-          </div>
-        </div>
-
-      </div>
-
-      <div class="swiper-pagination"></div>
-    </div>
-
-    <div class="bottom-nav">
-      <button class="nav-btn" id="prevBottom">←</button>
-      <button class="nav-btn" id="nextBottom">→</button>
-    </div>
-
-    <a id="shareFacebookBtn" class="action-btn fb-btn"
-       href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
-       target="_blank" rel="noopener">
-      Partilhar no Facebook
-    </a>
-
-    <button id="copyLinkBtn" class="action-btn copy-btn">
-      Copiar ligação
-    </button>
-
-    <hr>
-
-    <div id="disqus_thread"></div>
+  <!-- FOTO -->
+  <div class="foto-topo">
+    <img src="assets/img/marina_cortes.jpg"
+         style="width:100%; max-width:320px; display:block; margin:auto;">
   </div>
 
-  <div id="lightbox"></div>
-  <audio id="musicaMarina" src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3" preload="auto"></audio>
+  <!-- BOTÕES DE LÍNGUA + SOM -->
+  <div class="lang-buttons">
+    <button id="toggleSound" class="sound-btn">🔈</button>
+    <button onclick="showLang('fr')">FR</button>
+    <button onclick="showLang('es')">ES</button>
+    <button onclick="showLang('pt')">PT</button>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <!-- TÍTULOS -->
+  <div id="lang_fr" style="display:none;">
+    <h1>Hommage à une vie</h1>
+    <p>À la mémoire de <strong>Marina Lourenço Cortes</strong>.</p>
+  </div>
 
-  <script>
-    const YT_VIDEO_ID = 'OEvdBX5_Fy0';
-    const soundcloudStartSec = 720;
+  <div id="lang_es" style="display:none;">
+    <h1>Homenaje a una vida</h1>
+    <p>En memoria de <strong>Marina Lourenço Cortes</strong>.</p>
+  </div>
 
-    document.getElementById("youtube_iframe_1").src =
-      `https://www.youtube.com/embed/${YT_VIDEO_ID}?enablejsapi=1&cb=20260723&origin=`;
+  <div id="lang_pt" style="display:block;">
+    <h1>Homenagem a uma vida</h1>
+    <p>À memória de <strong>Marina Lourenço Cortes</strong>.</p>
+  </div>
 
-    function detectPreferredLanguage() {
-      const raw = navigator.languages || [navigator.language || 'pt'];
-      const scores = { pt: 0, fr: 0, es: 0 };
-      raw.forEach(l => {
-        const lang = l.toLowerCase();
-        if (lang.startsWith('pt')) scores.pt += 1;
-        if (lang.startsWith('fr')) scores.fr += 1;
-        if (lang.startsWith('es')) scores.es += 1;
-      });
-      let best = 'pt';
-      if (scores.fr > scores.pt && scores.fr > scores.es) best = 'fr';
-      if (scores.es > scores.pt && scores.es > scores.fr) best = 'es';
-      return best;
-    }
+  <!-- SWIPER -->
+  <div class="swiper my-swiper">
+    <div class="swiper-wrapper">
 
-    var disqus_config = function () {
-      this.page.url = window.location.href;
-      this.page.identifier = "hommage-marina-page";
-      this.language = "pt";
-    };
-    (function() {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://hommage-marina.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-    function loadDisqus(lang) {
-      if (lang === "es") lang = "en";
-      if (window.DISQUS) {
-        window.DISQUS.reset({
-          reload: true,
-          config: function () {
-            this.page.url = window.location.href;
-            this.page.identifier = "hommage-marina-page";
-            this.language = lang;
-          }
-        });
-      }
-    }
+      <!-- Slide texto -->
+      <div class="swiper-slide" data-tipo="foto-homenagem">
+        <div id="slide1_fr" style="display:none;">
+          <p><strong>Marina Lourenço</strong> est partie trop tôt...</p>
+        </div>
+        <div id="slide1_es" style="display:none;">
+          <p><strong>Marina Lourenço</strong> se fue demasiado pronto...</p>
+        </div>
+        <div id="slide1_pt" style="display:block;">
+          <p><strong>Marina Lourenço</strong> partiu demasiado cedo...</p>
+        </div>
+      </div>
 
-    const swiper = new Swiper('.my-swiper', {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      autoHeight: true,
-      pagination: { el: '.swiper-pagination', clickable: true }
-    });
+      <!-- YouTube 1 -->
+      <div class="swiper-slide" data-tipo="youtube">
+        <iframe id="youtube_iframe_1"
+          src="https://www.youtube.com/embed/OEvdBX5_Fy0?enablejsapi=1"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
 
-    document.getElementById('prevTop').onclick = () => swiper.slidePrev();
-    document.getElementById('nextTop').onclick = () => swiper.slideNext();
-    document.getElementById('prevBottom').onclick = () => swiper.slidePrev();
-    document.getElementById('nextBottom').onclick = () => swiper.slideNext();
+      <!-- SoundCloud -->
+      <div class="swiper-slide">
+        <iframe id="soundcloud_iframe" width="100%" height="166"
+          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/radiocampusbx/emission-falseta-n-9">
+        </iframe>
+      </div>
 
-    let scWidget = null;
-    let scIframe = document.getElementById('soundcloud_iframe');
+      <!-- Foto -->
+      <div class="swiper-slide" data-tipo="foto">
+        <img src="assets/img/2005-01-26_Marina_Lourenco_Flamenco_entrevista.jpg"
+             class="foto-slide" onclick="abrirLightbox(this.src)">
+      </div>
 
-    function initSoundCloudWidget() {
-      if (!scIframe) return;
-      scWidget = SC.Widget(scIframe);
-      scWidget.bind(SC.Widget.Events.READY, function() {
-        if (typeof soundcloudStartSec === 'number' && soundcloudStartSec > 0) {
-          scWidget.seekTo(soundcloudStartSec * 1000);
-        }
-      });
-    }
+      <!-- YouTube 2 -->
+      <div class="swiper-slide" data-tipo="youtube">
+        <iframe id="youtube_iframe_2"
+          src="https://www.youtube.com/embed/6z-jzUNWT4o?enablejsapi=1"
+          frameborder="0" allowfullscreen></iframe>
+      </div>
 
-    if (window.SC && SC.Widget) {
-      initSoundCloudWidget();
-    } else {
-      window.addEventListener('load', function() {
-        setTimeout(initSoundCloudWidget, 300);
-      });
-    }
+      <!-- Fotos -->
+      <div class="swiper-slide" data-tipo="foto">
+        <img src="assets/img/marina_e_canito.jpg" class="foto-slide">
+      </div>
 
-    function pauseMedia() {
-      document.querySelectorAll('iframe[src*="youtube"]').forEach(iframe => {
-        try {
-          iframe.contentWindow.postMessage(
-            '{"event":"command","func":"pauseVideo","args":""}',
-            '*'
-          );
-        } catch(e) {
-          console.warn('YT pause error', e);
-        }
-      });
+      <div class="swiper-slide" data-tipo="foto">
+        <img src="assets/img/marina_meditacao2.jpg" class="foto-slide">
+      </div>
 
-      try {
-        if (scWidget && typeof scWidget.pause === 'function') {
-          scWidget.pause();
-        } else {
-          document.querySelectorAll('iframe[src*="soundcloud"]').forEach(iframe => {
-            iframe.contentWindow.postMessage({ method: 'pause' }, '*');
-          });
-        }
-      } catch (e) { console.warn('SC pause error', e); }
-    }
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
 
-    swiper.on('slideChange', function () {
-      pauseMedia();
-    });
+  <!-- BOTÕES DE AÇÃO -->
+  <a id="shareFacebookBtn" class="action-btn fb-btn"
+     href="https://www.facebook.com/sharer/sharer.php?u=https://ic015.github.io/hommage-marina/"
+     target="_blank">📤 Share</a>
 
-    function showLang(lang){
-      document.getElementById('lang_fr').style.display = (lang==='fr') ? 'block' : 'none';
-      document.getElementById('lang_es').style.display = (lang==='es') ? 'block' : 'none';
-      document.getElementById('lang_pt').style.display = (lang==='pt') ? 'block' : 'none';
-
-      document.getElementById('slide1_fr').style.display = (lang==='fr') ? 'block' : 'none';
-      document.getElementById('slide1_es').style.display = (lang==='es') ? 'block' : 'none';
-      document.getElementById('slide1_pt').style.display = (lang==='pt') ? 'block' : 'none';
-
-      loadDisqus(lang);
-    }
-    const initialLang = detectPreferredLanguage();
-    showLang(initialLang);
-
-    const audio = document.getElementById("musicaMarina");
-    audio.volume = 0.2;
-    audio.loop = true;
-
-    let fadeInInterval = null;
-    let fadeOutInterval = null;
-
-    function fadeIn(audio) {
-      if (audio.paused) audio.play();
-      clearInterval(fadeOutInterval);
-      fadeOutInterval = null;
-      let v = audio.volume;
-      fadeInInterval = setInterval(() => {
-        v += 0.03;
-        if (v >= 1) {
-          v = 1;
-          clearInterval(fadeInInterval);
-          fadeInInterval = null;
-        }
-        audio.volume = v;
-      }, 60);
-    }
-
-    function fadeOut(audio) {
-      clearInterval(fadeInInterval);
-      fadeInInterval = null;
-      let v = audio.volume;
-      fadeOutInterval = setInterval(() => {
-        v -= 0.03;
-        if (v <= 0) {
-          v = 0;
-          audio.pause();
-          clearInterval(fadeOutInterval);
-          fadeOutInterval = null;
-        }
-        audio.volume = v;
-      }, 60);
-    }
-
-    let musicaAtiva = false;
-
-    function atualizarIconeSom() {
-      const btn = document.getElementById("toggleSound");
-      btn.textContent = musicaAtiva ? "🔊" : "🔇";
-    }
-
-    function slidePermiteMusica() {
-      const activeSlide = swiper.slides[swiper.activeIndex];
-      const tipo = activeSlide.dataset.tipo || "";
-      return (tipo === "foto" || tipo === "foto-homenagem");
-    }
-
-    document.getElementById("toggleSound").addEventListener("click", () => {
-      musicaAtiva = !musicaAtiva;
-      if (musicaAtiva) {
-        if (slidePermiteMusica()) {
-          fadeIn(audio);
-        } else {
-          fadeOut(audio);
-        }
-      } else {
-        fadeOut(audio);
-      }
-      atualizarIconeSom();
-    });
-
-    swiper.on('slideChange', function () {
-      pauseMedia();
-      if (!musicaAtiva) {
-        fadeOut(audio);
-        return;
-      }
-      if (slidePermiteMusica()) {
-        fadeIn(audio);
-      } else {
-        fadeOut(audio);
-      }
-    });
-
-    function abrirLightbox(src) {
-      const lb = document.getElementById('lightbox');
-      lb.innerHTML = `<img src="${src}" onclick="fecharLightbox()">`;
-      lb.style.display = 'flex';
-    }
-
-    function fecharLightbox() {
-      document.getElementById('lightbox').style.display = 'none';
-    }
-
-    window.addEventListener("load", function() {
-      const lang = navigator.language.toLowerCase();
-      const fbBtn = document.getElementById("shareFacebookBtn");
-      const copyBtn = document.getElementById("copyLinkBtn");
-
-      if (!fbBtn || !copyBtn) return;
-
-      if (lang.startsWith("fr")) fbBtn.textContent = "Partager sur Facebook";
-      else if (lang.startsWith("es")) fbBtn.textContent = "Compartir en Facebook";
-      else fbBtn.textContent = "Partilhar no Facebook";
-
-      if (lang.startsWith("fr")) copyBtn.textContent = "Copier le lien";
-      else if (lang.startsWith("es")) copyBtn.textContent = "Copiar enlace";
-      else copyBtn.textContent = "Copiar ligação";
-
-      copyBtn.addEventListener("click", () => {
-        const url = "https://ic015.github.io/hommage-marina/";
-        navigator.clipboard.writeText(url).then(() => {
-          if (lang.startsWith("fr")) alert("Lien copié !");
-          else if (lang.startsWith("es")) alert("Enlace copiado!");
-          else alert("Ligação copiada!");
-        });
-      });
-    });
-  </script>
+  <button id="copyLinkBtn" class="action-btn copy-btn">📋 Copy link</button>
 
   <hr>
-  <p style="opacity:.6; font-size:.85em; text-align:center; margin-top:20px;">
-    Música: “Poetas Andaluces” — Aguaviva.
-  </p>
-  <br>
+  <div id="disqus_thread"></div>
+
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox"></div>
+
+<!-- MÚSICA -->
+<audio id="musicaMarina"
+       src="assets/audio/Aguaviva--Poetas_Andaluces--glivingston73.mp3"
+       preload="auto"></audio>
+
+<!-- LIBS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="https://w.soundcloud.com/player/api.js"></script>
+
+<script>
+/* DETECTAR LÍNGUA */
+function detectPreferredLanguage(){
+  const langs = navigator.languages || [navigator.language];
+  if(langs.some(l=>l.startsWith('fr'))) return 'fr';
+  if(langs.some(l=>l.startsWith('es'))) return 'es';
+  return 'pt';
+}
+
+/* MULTILÍNGUE */
+function showLang(lang){
+  document.getElementById('lang_fr').style.display = (lang==='fr')?'block':'none';
+  document.getElementById('lang_es').style.display = (lang==='es')?'block':'none';
+  document.getElementById('lang_pt').style.display = (lang==='pt')?'block':'none';
+
+  document.getElementById('slide1_fr').style.display = (lang==='fr')?'block':'none';
+  document.getElementById('slide1_es').style.display = (lang==='es')?'block':'none';
+  document.getElementById('slide1_pt').style.display = (lang==='pt')?'block':'none';
+}
+
+showLang(detectPreferredLanguage());
+
+/* SWIPER */
+const swiper = new Swiper('.my-swiper', {
+  slidesPerView:1,
+  autoHeight:true,
+  pagination:{ el:'.swiper-pagination', clickable:true }
+});
+
+/* LIGHTBOX */
+function abrirLightbox(src){
+  const lb=document.getElementById('lightbox');
+  lb.innerHTML=`<img src="${src}" onclick="fecharLightbox()">`;
+  lb.style.display='flex';
+}
+function fecharLightbox(){
+  document.getElementById('lightbox').style.display='none';
+}
+
+/* COPIAR LINK */
+document.getElementById("copyLinkBtn").onclick = () => {
+  navigator.clipboard.writeText("https://ic015.github.io/hommage-marina/")
+    .then(()=>alert("Link copied"));
+};
+
+/* MÚSICA */
+const audio=document.getElementById("musicaMarina");
+audio.volume=0.2;
+audio.loop=true;
+
+let musicaAtiva=false;
+
+document.getElementById("toggleSound").onclick=()=>{
+  musicaAtiva=!musicaAtiva;
+  if(musicaAtiva) audio.play(); else audio.pause();
+  document.getElementById("toggleSound").textContent = musicaAtiva ? "🔊" : "🔈";
+};
+
+/* PAUSAR MEDIA AO TROCAR SLIDE */
+swiper.on('slideChange',()=>{
+  document.querySelectorAll('iframe[src*="youtube"]').forEach(i=>{
+    i.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}','*');
+  });
+  document.querySelectorAll('iframe[src*="soundcloud"]').forEach(i=>{
+    i.contentWindow.postMessage({method:'pause'},'*');
+  });
+});
+</script>
+
 </body>
 </html>
