@@ -724,7 +724,33 @@ function fecharLightbox() {
     lb.innerHTML = '';
 }
 
+function centrarSlide() {
+    const content = swiper.slides[swiper.activeIndex].querySelector('.slide-content');
+    if (!content) return;
 
+    const rect = content.getBoundingClientRect();
+    const absoluteTop = rect.top + window.scrollY;
+    const centerY = absoluteTop - (window.innerHeight / 2) + (rect.height / 2);
+
+    window.scrollTo({
+        top: centerY,
+        behavior: 'smooth'
+    });
+}
+function slideMove(dir) {
+    swiper.slideTo(swiper.activeIndex + dir);
+
+    // esperar um pouco para o Swiper animar
+    setTimeout(centrarSlide, 120);
+}
+/***********************
+ * Ligar botões às funções
+ ***********************/
+document.getElementById('prevTop').onclick = () => slideMove(-1);
+document.getElementById('nextTop').onclick = () => slideMove(1);
+
+document.getElementById('prevBottom').onclick = () => slideMove(-1);
+document.getElementById('nextBottom').onclick = () => slideMove(1);
 	  
   </script>
   <hr>
