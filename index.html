@@ -142,7 +142,11 @@
 .foto-menor {
     max-width: 600px;
     max-height: 60vh;
+    height: auto;          /* mantém proporção vertical */
+    width: auto;           /* mantém proporção horizontal */
+    object-fit: contain;   /* impede distorção */
 }
+
 
 .slide-content p {
     max-width: 700px;   /* ou 650px, ou 600px se quiseres ainda mais estreito */
