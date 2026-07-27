@@ -693,34 +693,19 @@ document.getElementById("toggleSound").addEventListener("click", () => {
  * Música + Swiper
  ***********************/
 swiper.on('slideChange', function () {
-    pauseMedia();
+    pauseMedia(); // já existe no teu código
 
     if (!musicaAtiva) {
         fadeOut(audio);
         return;
     }
 
+    // Se o slide permite música → garantir que toca SEMPRE
     if (slidePermiteMusica()) {
         fadeIn(audio);
     } else {
         fadeOut(audio);
     }
-
-	// ⭐ NOVO: centrar verticalmente o conteúdo do slide (método robusto)
-	const content = swiper.slides[swiper.activeIndex].querySelector('.slide-content');
-	if (content) {
-	    const rect = content.getBoundingClientRect();
-	    const absoluteTop = rect.top + window.scrollY;
-	    const centerY = absoluteTop - (window.innerHeight / 2) + (rect.height / 2);
-	
-	    window.scrollTo({
-	        top: centerY,
-	        behavior: 'smooth'
-	    });
-	}
-
-
-
 });
 
 function abrirLightbox(src) {
