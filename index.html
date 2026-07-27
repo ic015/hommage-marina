@@ -706,6 +706,9 @@ swiper.on('slideChange', function () {
     } else {
         fadeOut(audio);
     }
+	// ⭐ NOVO: centrar verticalmente o slide no ecrã
+    const slide = swiper.slides[swiper.activeIndex];
+    slide.scrollIntoView({ behavior: 'smooth', block: 'center' });
 });
 
 function abrirLightbox(src) {
